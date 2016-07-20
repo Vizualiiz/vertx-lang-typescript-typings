@@ -1,7 +1,6 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="./routing_context.d.ts" />
-/// <reference path="../vertx-auth-common-js/auth_provider.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="./routing_context" />
+/// <reference path="../vertx-auth-common-js/auth_provider" />
 
 declare module "vertx-web-js/form_login_handler" {
   export = FormLoginHandler;
@@ -12,7 +11,8 @@ declare module "vertx-web-js/form_login_handler" {
  * <p>
  * Used in conjunction with the RedirectAuthHandler.
  */
-interface FormLoginHandler
+
+declare interface FormLoginHandler
 {
 
   /**

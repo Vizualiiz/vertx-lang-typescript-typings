@@ -1,9 +1,8 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="./completion.d.ts" />
-/// <reference path="../vertx-js/cli.d.ts" />
-/// <reference path="./cli_token.d.ts" />
-/// <reference path="./process.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="./completion" />
+/// <reference path="../vertx-js/cli" />
+/// <reference path="./cli_token" />
+/// <reference path="./process" />
 
 declare module "vertx-shell-js/command" {
   export = Command;
@@ -13,7 +12,8 @@ declare module "vertx-shell-js/command" {
  * A Vert.x Shell command, it can be created from any language using the command or from a
  * Java class using create
  */
-interface Command
+
+declare interface Command
 {
 
   /**

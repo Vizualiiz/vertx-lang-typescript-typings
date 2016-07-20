@@ -1,7 +1,6 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="./session_store.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="./session_store" />
+/// <reference path="../vertx-js/vertx" />
 
 declare module "vertx-web-js/local_session_store" {
   export = LocalSessionStore;
@@ -12,7 +11,8 @@ declare module "vertx-web-js/local_session_store" {
  * <p>
  * Can be used when sticky sessions are being used.
  */
-interface LocalSessionStore
+
+declare interface LocalSessionStore
   extends SessionStore
 {
 }

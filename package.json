@@ -18,6 +18,7 @@
     "typings"
   ],
   "author": "Michel Kraemer",
+  "contributors": [ "Daniel Joyce" ],
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/michel-kraemer/vertx-lang-typescript-typings/issues"

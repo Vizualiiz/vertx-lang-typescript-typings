@@ -1,12 +1,12 @@
-/// <reference path="./throwable.d.ts" />
-/// <reference path="./server_web_socket.d.ts" />
-/// <reference path="./http_server_file_upload.d.ts" />
-/// <reference path="./buffer.d.ts" />
-/// <reference path="./http_server_response.d.ts" />
-/// <reference path="./multi_map.d.ts" />
-/// <reference path="./read_stream.d.ts" />
-/// <reference path="./socket_address.d.ts" />
-/// <reference path="./net_socket.d.ts" />
+/// <reference path="./globals.d.ts" />
+/// <reference path="./server_web_socket" />
+/// <reference path="./http_server_file_upload" />
+/// <reference path="./buffer" />
+/// <reference path="./http_server_response" />
+/// <reference path="./multi_map" />
+/// <reference path="./read_stream" />
+/// <reference path="./socket_address" />
+/// <reference path="./net_socket" />
 
 declare module "vertx-js/http_server_request" {
   export = HttpServerRequest;
@@ -23,7 +23,8 @@ declare module "vertx-js/http_server_request" {
  * Pump to pump data with flow control.
  * <p>
  */
-interface HttpServerRequest
+
+declare interface HttpServerRequest
   extends
     ReadStream
 {
@@ -42,6 +43,11 @@ interface HttpServerRequest
    * @return the HTTP method for the request.
    */
   method(): any;
+
+  /**
+   * @return true if this NetSocket is encrypted via SSL/TLS
+   */
+  isSSL(): boolean;
 
   /**
    * @return the URI of the request. This is usually a relative URI

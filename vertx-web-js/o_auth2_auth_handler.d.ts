@@ -1,9 +1,8 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="./route.d.ts" />
-/// <reference path="./auth_handler.d.ts" />
-/// <reference path="./routing_context.d.ts" />
-/// <reference path="../vertx-auth-common-js/auth_provider.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="./route" />
+/// <reference path="./auth_handler" />
+/// <reference path="./routing_context" />
+/// <reference path="../vertx-auth-common-js/auth_provider" />
 
 declare module "vertx-web-js/o_auth2_auth_handler" {
   export = OAuth2AuthHandler;
@@ -12,7 +11,8 @@ declare module "vertx-web-js/o_auth2_auth_handler" {
 /**
  * An auth handler that provides OAuth2 Authentication support. This handler is suitable for AuthCode flows.
  */
-interface OAuth2AuthHandler
+
+declare interface OAuth2AuthHandler
   extends
     AuthHandler
 {

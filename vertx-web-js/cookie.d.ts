@@ -1,5 +1,4 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
 
 declare module "vertx-web-js/cookie" {
   export = Cookie;
@@ -12,7 +11,8 @@ declare module "vertx-web-js/cookie" {
  * <p>
  * (Derived from io.netty.handler.codec.http.Cookie)
  */
-interface Cookie
+
+declare interface Cookie
 {
 
   /**

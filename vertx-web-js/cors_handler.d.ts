@@ -1,6 +1,5 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="./routing_context.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="./routing_context" />
 
 declare module "vertx-web-js/cors_handler" {
   export = CorsHandler;
@@ -9,7 +8,8 @@ declare module "vertx-web-js/cors_handler" {
 /**
  * A handler which implements server side http://www.w3.org/TR/cors/[CORS] support for Vert.x-Web.
  */
-interface CorsHandler
+
+declare interface CorsHandler
 {
 
   /**

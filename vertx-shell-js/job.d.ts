@@ -1,8 +1,7 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="./process.d.ts" />
-/// <reference path="./tty.d.ts" />
-/// <reference path="./session.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="./process" />
+/// <reference path="./tty" />
+/// <reference path="./session" />
 
 declare module "vertx-shell-js/job" {
   export = Job;
@@ -14,7 +13,8 @@ declare module "vertx-shell-js/job" {
  * The job life cycle can be controlled with the run, resume and suspend and interrupt
  * methods.
  */
-interface Job
+
+declare interface Job
 {
 
   /**

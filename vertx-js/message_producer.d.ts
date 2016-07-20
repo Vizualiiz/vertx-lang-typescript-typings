@@ -1,6 +1,6 @@
-/// <reference path="./throwable.d.ts" />
-/// <reference path="./write_stream.d.ts" />
-/// <reference path="./message.d.ts" />
+/// <reference path="./globals.d.ts" />
+/// <reference path="./write_stream" />
+/// <reference path="./message" />
 
 declare module "vertx-js/message_producer" {
   export = MessageProducer;
@@ -10,7 +10,8 @@ declare module "vertx-js/message_producer" {
  * Represents a stream of message that can be written to.
  * <p>
  */
-interface MessageProducer
+
+declare interface MessageProducer
   extends
     WriteStream
 {

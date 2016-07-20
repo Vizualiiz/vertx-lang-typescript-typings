@@ -1,7 +1,6 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="./tty.d.ts" />
-/// <reference path="./session.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="./tty" />
+/// <reference path="./session" />
 
 declare module "vertx-shell-js/process" {
   export = Process;
@@ -10,7 +9,8 @@ declare module "vertx-shell-js/process" {
 /**
  * A process managed by the shell.
  */
-interface Process
+
+declare interface Process
 {
 
   /**

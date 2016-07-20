@@ -1,8 +1,8 @@
-/// <reference path="./throwable.d.ts" />
-/// <reference path="./buffer.d.ts" />
-/// <reference path="./read_stream.d.ts" />
-/// <reference path="./multi_map.d.ts" />
-/// <reference path="./net_socket.d.ts" />
+/// <reference path="./globals.d.ts" />
+/// <reference path="./buffer" />
+/// <reference path="./read_stream" />
+/// <reference path="./multi_map" />
+/// <reference path="./net_socket" />
 
 declare module "vertx-js/http_client_response" {
   export = HttpClientResponse;
@@ -17,7 +17,8 @@ declare module "vertx-js/http_client_response" {
  * It implements ReadStream so it can be used with
  * Pump to pump data with flow control.
  */
-interface HttpClientResponse
+
+declare interface HttpClientResponse
   extends
     ReadStream
 {

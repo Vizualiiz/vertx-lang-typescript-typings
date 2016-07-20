@@ -1,4 +1,4 @@
-/// <reference path="./throwable.d.ts" />
+/// <reference path="./globals.d.ts" />
 
 declare module "vertx-js/socket_address" {
   export = SocketAddress;
@@ -7,7 +7,8 @@ declare module "vertx-js/socket_address" {
 /**
  * The address of a socket
  */
-interface SocketAddress
+
+declare interface SocketAddress
 {
   host(): string;
   port(): number;

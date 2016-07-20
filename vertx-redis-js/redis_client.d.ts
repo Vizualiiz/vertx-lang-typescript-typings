@@ -1,12 +1,12 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="../vertx-js/buffer.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="../vertx-js/buffer" />
+/// <reference path="../vertx-js/vertx" />
 
 declare module "vertx-redis-js/redis_client" {
   export = RedisClient;
 }
-interface RedisClient
+
+declare interface RedisClient
 {
 
   /**

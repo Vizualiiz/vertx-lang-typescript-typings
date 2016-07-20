@@ -1,6 +1,5 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="./auth_provider.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="./auth_provider" />
 
 declare module "vertx-auth-common-js/user" {
   export = User;
@@ -11,7 +10,8 @@ declare module "vertx-auth-common-js/user" {
  * <p>
  * Please consult the documentation for a detailed explanation.
  */
-interface User
+
+declare interface User
 {
 
   /**

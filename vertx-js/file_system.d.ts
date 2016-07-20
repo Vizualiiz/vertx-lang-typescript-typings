@@ -1,8 +1,8 @@
-/// <reference path="./throwable.d.ts" />
-/// <reference path="./async_file.d.ts" />
-/// <reference path="./buffer.d.ts" />
-/// <reference path="./file_system_props.d.ts" />
-/// <reference path="./file_props.d.ts" />
+/// <reference path="./globals.d.ts" />
+/// <reference path="./async_file" />
+/// <reference path="./buffer" />
+/// <reference path="./file_system_props" />
+/// <reference path="./file_props" />
 
 declare module "vertx-js/file_system" {
   export = FileSystem;
@@ -22,7 +22,8 @@ declare module "vertx-js/file_system" {
  * <p>
  * Please consult the documentation for more information on file system support.
  */
-interface FileSystem
+
+declare interface FileSystem
 {
 
   /**

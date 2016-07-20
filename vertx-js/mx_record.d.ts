@@ -1,4 +1,4 @@
-/// <reference path="./throwable.d.ts" />
+/// <reference path="./globals.d.ts" />
 
 declare module "vertx-js/mx_record" {
   export = MxRecord;
@@ -7,7 +7,8 @@ declare module "vertx-js/mx_record" {
 /**
  * Represent a Mail-Exchange-Record (MX) which was resolved for a domain.
  */
-interface MxRecord
+
+declare interface MxRecord
 {
 
   /**

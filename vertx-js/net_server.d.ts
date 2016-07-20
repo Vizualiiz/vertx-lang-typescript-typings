@@ -1,7 +1,7 @@
-/// <reference path="./throwable.d.ts" />
-/// <reference path="./net_socket_stream.d.ts" />
-/// <reference path="./measured.d.ts" />
-/// <reference path="./net_socket.d.ts" />
+/// <reference path="./globals.d.ts" />
+/// <reference path="./net_socket_stream" />
+/// <reference path="./measured" />
+/// <reference path="./net_socket" />
 
 declare module "vertx-js/net_server" {
   export = NetServer;
@@ -10,7 +10,8 @@ declare module "vertx-js/net_server" {
 /**
  * Represents a TCP server
  */
-interface NetServer
+
+declare interface NetServer
   extends
     Measured
 {

@@ -1,9 +1,9 @@
-/// <reference path="./throwable.d.ts" />
-/// <reference path="./http_client_response.d.ts" />
-/// <reference path="./buffer.d.ts" />
-/// <reference path="./write_stream.d.ts" />
-/// <reference path="./read_stream.d.ts" />
-/// <reference path="./multi_map.d.ts" />
+/// <reference path="./globals.d.ts" />
+/// <reference path="./http_client_response" />
+/// <reference path="./buffer" />
+/// <reference path="./write_stream" />
+/// <reference path="./read_stream" />
+/// <reference path="./multi_map" />
 
 declare module "vertx-js/http_client_request" {
   export = HttpClientRequest;
@@ -36,7 +36,8 @@ declare module "vertx-js/http_client_request" {
  * An example of using this class is as follows:
  * <p>
  */
-interface HttpClientRequest
+
+declare interface HttpClientRequest
   extends
     WriteStream
   , 

@@ -1,6 +1,5 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="./session.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="./session" />
 
 declare module "vertx-web-js/session_store" {
   export = SessionStore;
@@ -9,7 +8,8 @@ declare module "vertx-web-js/session_store" {
 /**
  * A session store is used to store sessions for an Vert.x-Web web app
  */
-interface SessionStore
+
+declare interface SessionStore
 {
 
   /**

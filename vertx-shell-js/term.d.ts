@@ -1,9 +1,8 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="./completion.d.ts" />
-/// <reference path="./signal_handler.d.ts" />
-/// <reference path="./tty.d.ts" />
-/// <reference path="./session.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="./completion" />
+/// <reference path="./signal_handler" />
+/// <reference path="./tty" />
+/// <reference path="./session" />
 
 declare module "vertx-shell-js/term" {
   export = Term;
@@ -12,7 +11,8 @@ declare module "vertx-shell-js/term" {
 /**
  * The terminal.
  */
-interface Term
+
+declare interface Term
   extends Tty
 {
   resizehandler(handler: (e: void) => void): Term;

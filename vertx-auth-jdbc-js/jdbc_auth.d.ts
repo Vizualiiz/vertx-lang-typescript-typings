@@ -1,7 +1,6 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="../vertx-jdbc-js/jdbc_client.d.ts" />
-/// <reference path="../vertx-auth-common-js/auth_provider.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="../vertx-jdbc-js/jdbc_client" />
+/// <reference path="../vertx-auth-common-js/auth_provider" />
 
 declare module "vertx-auth-jdbc-js/jdbc_auth" {
   export = JDBCAuth;
@@ -10,7 +9,8 @@ declare module "vertx-auth-jdbc-js/jdbc_auth" {
 /**
  * Factory interface for creating AuthProvider instances that use the Vert.x JDBC client
  */
-interface JDBCAuth
+
+declare interface JDBCAuth
   extends AuthProvider
 {
 

@@ -1,6 +1,6 @@
-/// <reference path="./throwable.d.ts" />
-/// <reference path="./buffer.d.ts" />
-/// <reference path="./read_stream.d.ts" />
+/// <reference path="./globals.d.ts" />
+/// <reference path="./buffer" />
+/// <reference path="./read_stream" />
 
 declare module "vertx-js/http_server_file_upload" {
   export = HttpServerFileUpload;
@@ -9,7 +9,8 @@ declare module "vertx-js/http_server_file_upload" {
 /**
  * Represents an file upload from an HTML FORM.
  */
-interface HttpServerFileUpload
+
+declare interface HttpServerFileUpload
   extends
     ReadStream
 {

@@ -1,6 +1,6 @@
-/// <reference path="./throwable.d.ts" />
-/// <reference path="./measured.d.ts" />
-/// <reference path="./net_socket.d.ts" />
+/// <reference path="./globals.d.ts" />
+/// <reference path="./measured" />
+/// <reference path="./net_socket" />
 
 declare module "vertx-js/net_client" {
   export = NetClient;
@@ -14,7 +14,8 @@ declare module "vertx-js/net_client" {
  * This client supports a configurable number of connection attempts and a configurable
  * delay between attempts.
  */
-interface NetClient
+
+declare interface NetClient
   extends
     Measured
 {

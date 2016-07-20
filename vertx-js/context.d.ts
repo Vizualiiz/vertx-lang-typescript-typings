@@ -1,6 +1,6 @@
-/// <reference path="./throwable.d.ts" />
-/// <reference path="./vertx.d.ts" />
-/// <reference path="./future.d.ts" />
+/// <reference path="./globals.d.ts" />
+/// <reference path="./vertx" />
+/// <reference path="./future" />
 
 declare module "vertx-js/context" {
   export = Context;
@@ -38,7 +38,8 @@ declare module "vertx-js/context" {
  * <p>
  * This class also provides runOnContext which allows an action to be executed asynchronously using the same context.
  */
-interface Context
+
+declare interface Context
 {
 
   /**

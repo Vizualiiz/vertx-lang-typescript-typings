@@ -1,7 +1,6 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="./template_engine.d.ts" />
-/// <reference path="./routing_context.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="./template_engine" />
+/// <reference path="./routing_context" />
 
 declare module "vertx-web-js/template_handler" {
   export = TemplateHandler;
@@ -12,7 +11,8 @@ declare module "vertx-web-js/template_handler" {
  * A handler which renders responses using a template engine and where the template name is selected from the URI
  * path.
  */
-interface TemplateHandler
+
+declare interface TemplateHandler
 {
 
   /**

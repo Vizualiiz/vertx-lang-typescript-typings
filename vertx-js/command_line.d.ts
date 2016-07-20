@@ -1,5 +1,5 @@
-/// <reference path="./throwable.d.ts" />
-/// <reference path="./cli.d.ts" />
+/// <reference path="./globals.d.ts" />
+/// <reference path="./cli" />
 
 declare module "vertx-js/command_line" {
   export = CommandLine;
@@ -10,7 +10,8 @@ declare module "vertx-js/command_line" {
  * has stored the argument and option values. Only  instance of parser should create
  * objects of this type.
  */
-interface CommandLine
+
+declare interface CommandLine
 {
 
   /**

@@ -1,7 +1,6 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="../vertx-sql-js/sql_connection.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="../vertx-js/vertx" />
+/// <reference path="../vertx-sql-js/sql_connection" />
 
 declare module "vertx-jdbc-js/jdbc_client" {
   export = JDBCClient;
@@ -10,7 +9,8 @@ declare module "vertx-jdbc-js/jdbc_client" {
 /**
  * An asynchronous client interface for interacting with a JDBC compliant database
  */
-interface JDBCClient
+
+declare interface JDBCClient
 {
 
   /**

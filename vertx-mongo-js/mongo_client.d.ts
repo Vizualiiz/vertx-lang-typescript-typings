@@ -1,6 +1,5 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="../vertx-js/vertx" />
 
 declare module "vertx-mongo-js/mongo_client" {
   export = MongoClient;
@@ -9,7 +8,8 @@ declare module "vertx-mongo-js/mongo_client" {
 /**
  * A Vert.x service used to interact with MongoDB server instances.
  */
-interface MongoClient
+
+declare interface MongoClient
 {
 
   /**

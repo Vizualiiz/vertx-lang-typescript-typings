@@ -1,6 +1,6 @@
-/// <reference path="./throwable.d.ts" />
-/// <reference path="./read_stream.d.ts" />
-/// <reference path="./net_socket.d.ts" />
+/// <reference path="./globals.d.ts" />
+/// <reference path="./read_stream" />
+/// <reference path="./net_socket" />
 
 declare module "vertx-js/net_socket_stream" {
   export = NetSocketStream;
@@ -10,7 +10,8 @@ declare module "vertx-js/net_socket_stream" {
  * A ReadStream of NetSocket, used for notifying
  * socket connections to a NetServer.
  */
-interface NetSocketStream
+
+declare interface NetSocketStream
   extends
     ReadStream
 {

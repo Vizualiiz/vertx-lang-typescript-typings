@@ -1,9 +1,8 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="./route.d.ts" />
-/// <reference path="../vertx-js/http_server_request.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="./routing_context.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="./route" />
+/// <reference path="../vertx-js/http_server_request" />
+/// <reference path="../vertx-js/vertx" />
+/// <reference path="./routing_context" />
 
 declare module "vertx-web-js/router" {
   export = Router;
@@ -15,12 +14,13 @@ declare module "vertx-web-js/router" {
  * <p>
  * Routers are also used for routing failures.
  */
-interface Router
+
+declare interface Router
 {
 
   /**
    * This method is used to provide a request to the router. Usually you take request from the
-   *  and pass it to this method. The
+   * requestHandler and pass it to this method. The
    * router then routes it to matching routes.
    */
   accept(request: HttpServerRequest): void;

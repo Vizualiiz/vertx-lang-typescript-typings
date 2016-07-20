@@ -1,9 +1,8 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="../vertx-web-js/router.d.ts" />
-/// <reference path="./term.d.ts" />
-/// <reference path="../vertx-auth-common-js/auth_provider.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="../vertx-js/vertx" />
+/// <reference path="../vertx-web-js/router" />
+/// <reference path="./term" />
+/// <reference path="../vertx-auth-common-js/auth_provider" />
 
 declare module "vertx-shell-js/term_server" {
   export = TermServer;
@@ -12,7 +11,8 @@ declare module "vertx-shell-js/term_server" {
 /**
  * A server for terminal based applications.
  */
-interface TermServer
+
+declare interface TermServer
 {
 
   /**

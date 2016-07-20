@@ -1,8 +1,8 @@
-/// <reference path="./throwable.d.ts" />
-/// <reference path="./buffer.d.ts" />
-/// <reference path="./write_stream.d.ts" />
-/// <reference path="./read_stream.d.ts" />
-/// <reference path="./socket_address.d.ts" />
+/// <reference path="./globals.d.ts" />
+/// <reference path="./buffer" />
+/// <reference path="./write_stream" />
+/// <reference path="./read_stream" />
+/// <reference path="./socket_address" />
 
 declare module "vertx-js/net_socket" {
   export = NetSocket;
@@ -19,7 +19,8 @@ declare module "vertx-js/net_socket" {
  * It implements both  and  so it can be used with
  * Pump to pump data with flow control.
  */
-interface NetSocket
+
+declare interface NetSocket
   extends
     ReadStream
   , 

@@ -1,4 +1,4 @@
-/// <reference path="./throwable.d.ts" />
+/// <reference path="./globals.d.ts" />
 
 declare module "vertx-js/buffer" {
   export = Buffer;
@@ -12,7 +12,8 @@ declare module "vertx-js/buffer" {
  * <p>
  * Please consult the documentation for more information on buffers.
  */
-interface Buffer
+
+declare interface Buffer
 {
 
   /**

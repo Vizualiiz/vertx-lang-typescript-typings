@@ -1,6 +1,5 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="./routing_context.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="./routing_context" />
 
 declare module "vertx-web-js/error_handler" {
   export = ErrorHandler;
@@ -9,7 +8,8 @@ declare module "vertx-web-js/error_handler" {
 /**
  * A pretty error handler for rendering error pages.
  */
-interface ErrorHandler
+
+declare interface ErrorHandler
 {
 
   /**

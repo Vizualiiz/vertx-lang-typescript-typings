@@ -1,12 +1,11 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="./session.d.ts" />
-/// <reference path="../vertx-auth-common-js/user.d.ts" />
-/// <reference path="../vertx-js/buffer.d.ts" />
-/// <reference path="../vertx-js/write_stream.d.ts" />
-/// <reference path="../vertx-js/read_stream.d.ts" />
-/// <reference path="../vertx-js/multi_map.d.ts" />
-/// <reference path="../vertx-js/socket_address.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="./session" />
+/// <reference path="../vertx-auth-common-js/user" />
+/// <reference path="../vertx-js/buffer" />
+/// <reference path="../vertx-js/write_stream" />
+/// <reference path="../vertx-js/read_stream" />
+/// <reference path="../vertx-js/multi_map" />
+/// <reference path="../vertx-js/socket_address" />
 
 declare module "vertx-web-js/sock_js_socket" {
   export = SockJSSocket;
@@ -21,7 +20,8 @@ declare module "vertx-web-js/sock_js_socket" {
  * so it can be used with
  * Pump to pump data with flow control.<p>
  */
-interface SockJSSocket
+
+declare interface SockJSSocket
   extends
     ReadStream
   , 

@@ -1,5 +1,4 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
 
 declare module "vertx-web-js/file_upload" {
   export = FileUpload;
@@ -9,7 +8,8 @@ declare module "vertx-web-js/file_upload" {
  * Represents a file-upload from an HTTP multipart form submission.
  * <p>
  */
-interface FileUpload
+
+declare interface FileUpload
 {
 
   /**

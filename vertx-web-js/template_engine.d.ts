@@ -1,7 +1,6 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="../vertx-js/buffer.d.ts" />
-/// <reference path="./routing_context.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="../vertx-js/buffer" />
+/// <reference path="./routing_context" />
 
 declare module "vertx-web-js/template_engine" {
   export = TemplateEngine;
@@ -12,7 +11,8 @@ declare module "vertx-web-js/template_engine" {
  * <p>
  * Concrete implementations exist for several well-known template engines.
  */
-interface TemplateEngine
+
+declare interface TemplateEngine
 {
 
   /**

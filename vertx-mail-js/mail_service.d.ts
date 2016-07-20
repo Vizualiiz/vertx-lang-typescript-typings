@@ -1,7 +1,6 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="./mail_client.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="../vertx-js/vertx" />
+/// <reference path="./mail_client" />
 
 declare module "vertx-mail-js/mail_service" {
   export = MailService;
@@ -10,7 +9,8 @@ declare module "vertx-mail-js/mail_service" {
 /**
  * @author <a href="http://tfox.org">Tim Fox</a>
  */
-interface MailService
+
+declare interface MailService
   extends MailClient
 {
   sendMail(email: any, resultHandler: (res: any, err?: Throwable) => void): MailService;

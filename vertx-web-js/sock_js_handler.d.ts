@@ -1,10 +1,9 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="./sock_js_socket.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="./router.d.ts" />
-/// <reference path="./routing_context.d.ts" />
-/// <reference path="./bridge_event.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="./sock_js_socket" />
+/// <reference path="../vertx-js/vertx" />
+/// <reference path="./router" />
+/// <reference path="./routing_context" />
+/// <reference path="./bridge_event" />
 
 declare module "vertx-web-js/sock_js_handler" {
   export = SockJSHandler;
@@ -17,7 +16,8 @@ declare module "vertx-web-js/sock_js_handler" {
  * We currently support version 0.3.3 of the SockJS protocol, which can be found in
  * <a href="https://github.com/sockjs/sockjs-protocol/tree/v0.3.3">this tag:</a>
  */
-interface SockJSHandler
+
+declare interface SockJSHandler
 {
 
   /**

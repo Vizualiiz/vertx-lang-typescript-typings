@@ -1,6 +1,6 @@
-/// <reference path="./throwable.d.ts" />
-/// <reference path="./write_stream.d.ts" />
-/// <reference path="./read_stream.d.ts" />
+/// <reference path="./globals.d.ts" />
+/// <reference path="./write_stream" />
+/// <reference path="./read_stream" />
 
 declare module "vertx-js/pump" {
   export = Pump;
@@ -26,7 +26,8 @@ declare module "vertx-js/pump" {
  * <p>
  * Please see the documentation for more information.
  */
-interface Pump
+
+declare interface Pump
 {
 
   /**

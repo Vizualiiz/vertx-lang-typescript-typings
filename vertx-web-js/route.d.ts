@@ -1,6 +1,5 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="./routing_context.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="./routing_context" />
 
 declare module "vertx-web-js/route" {
   export = Route;
@@ -10,7 +9,8 @@ declare module "vertx-web-js/route" {
  * A route is a holder for a set of criteria which determine whether an HTTP request or failure should be routed
  * to a handler.
  */
-interface Route
+
+declare interface Route
 {
 
   /**

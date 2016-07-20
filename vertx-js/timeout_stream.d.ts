@@ -1,5 +1,5 @@
-/// <reference path="./throwable.d.ts" />
-/// <reference path="./read_stream.d.ts" />
+/// <reference path="./globals.d.ts" />
+/// <reference path="./read_stream" />
 
 declare module "vertx-js/timeout_stream" {
   export = TimeoutStream;
@@ -13,7 +13,8 @@ declare module "vertx-js/timeout_stream" {
  * Pausing the timer inhibits the timer shots until the stream is resumed. Setting a null handler callback cancels
  * the timer.
  */
-interface TimeoutStream
+
+declare interface TimeoutStream
   extends
     ReadStream
 {

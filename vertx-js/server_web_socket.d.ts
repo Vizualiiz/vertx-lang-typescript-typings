@@ -1,9 +1,9 @@
-/// <reference path="./throwable.d.ts" />
-/// <reference path="./web_socket_base.d.ts" />
-/// <reference path="./buffer.d.ts" />
-/// <reference path="./multi_map.d.ts" />
-/// <reference path="./web_socket_frame.d.ts" />
-/// <reference path="./socket_address.d.ts" />
+/// <reference path="./globals.d.ts" />
+/// <reference path="./web_socket_base" />
+/// <reference path="./buffer" />
+/// <reference path="./multi_map" />
+/// <reference path="./web_socket_frame" />
+/// <reference path="./socket_address" />
 
 declare module "vertx-js/server_web_socket" {
   export = ServerWebSocket;
@@ -15,7 +15,8 @@ declare module "vertx-js/server_web_socket" {
  * Instances of this class are passed into a websocketHandler or provided
  * when a WebSocket handshake is manually upgradeed.
  */
-interface ServerWebSocket
+
+declare interface ServerWebSocket
   extends
     WebSocketBase
 {

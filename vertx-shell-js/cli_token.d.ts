@@ -1,5 +1,4 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
 
 declare module "vertx-shell-js/cli_token" {
   export = CliToken;
@@ -8,7 +7,8 @@ declare module "vertx-shell-js/cli_token" {
 /**
  * A parsed token in the command line interface.
  */
-interface CliToken
+
+declare interface CliToken
 {
 
   /**

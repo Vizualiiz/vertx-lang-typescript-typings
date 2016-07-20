@@ -1,8 +1,7 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="./auth_handler.d.ts" />
-/// <reference path="./routing_context.d.ts" />
-/// <reference path="../vertx-auth-common-js/auth_provider.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="./auth_handler" />
+/// <reference path="./routing_context" />
+/// <reference path="../vertx-auth-common-js/auth_provider" />
 
 declare module "vertx-web-js/basic_auth_handler" {
   export = BasicAuthHandler;
@@ -11,7 +10,8 @@ declare module "vertx-web-js/basic_auth_handler" {
 /**
  * An auth handler that provides HTTP Basic Authentication support.
  */
-interface BasicAuthHandler
+
+declare interface BasicAuthHandler
   extends
     AuthHandler
 {

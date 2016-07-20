@@ -1,6 +1,5 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="./routing_context.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="./routing_context" />
 
 declare module "vertx-web-js/csrf_handler" {
   export = CSRFHandler;
@@ -14,7 +13,8 @@ declare module "vertx-web-js/csrf_handler" {
  *
  * This Handler requires session support, thus should be added somewhere below Session and Body handlers.
  */
-interface CSRFHandler
+
+declare interface CSRFHandler
 {
 
   /**

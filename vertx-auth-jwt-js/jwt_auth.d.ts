@@ -1,7 +1,6 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="../vertx-auth-common-js/auth_provider.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="../vertx-js/vertx" />
+/// <reference path="../vertx-auth-common-js/auth_provider" />
 
 declare module "vertx-auth-jwt-js/jwt_auth" {
   export = JWTAuth;
@@ -10,7 +9,8 @@ declare module "vertx-auth-jwt-js/jwt_auth" {
 /**
  * Factory interface for creating JWT based AuthProvider instances.
  */
-interface JWTAuth
+
+declare interface JWTAuth
   extends AuthProvider
 {
 

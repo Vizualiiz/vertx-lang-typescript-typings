@@ -1,6 +1,6 @@
-/// <reference path="./throwable.d.ts" />
-/// <reference path="./buffer.d.ts" />
-/// <reference path="./socket_address.d.ts" />
+/// <reference path="./globals.d.ts" />
+/// <reference path="./buffer" />
+/// <reference path="./socket_address" />
 
 declare module "vertx-js/datagram_packet" {
   export = DatagramPacket;
@@ -9,7 +9,8 @@ declare module "vertx-js/datagram_packet" {
 /**
  * A received datagram packet (UDP) which contains the data and information about the sender of the data itself.
  */
-interface DatagramPacket
+
+declare interface DatagramPacket
 {
 
   /**

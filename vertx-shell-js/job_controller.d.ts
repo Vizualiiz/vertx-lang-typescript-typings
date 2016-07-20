@@ -1,7 +1,6 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="./job.d.ts" />
-/// <reference path="./process.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="./job" />
+/// <reference path="./process" />
 
 declare module "vertx-shell-js/job_controller" {
   export = JobController;
@@ -10,7 +9,8 @@ declare module "vertx-shell-js/job_controller" {
 /**
  * The job controller.<p/>
  */
-interface JobController
+
+declare interface JobController
 {
 
   /**

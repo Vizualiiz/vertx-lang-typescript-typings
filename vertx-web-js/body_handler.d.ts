@@ -1,6 +1,5 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="./routing_context.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="./routing_context" />
 
 declare module "vertx-web-js/body_handler" {
   export = BodyHandler;
@@ -11,7 +10,8 @@ declare module "vertx-web-js/body_handler" {
  * <p>
  * It also handles HTTP file uploads and can be used to limit body sizes.
  */
-interface BodyHandler
+
+declare interface BodyHandler
 {
 
   /**

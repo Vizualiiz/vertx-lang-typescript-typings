@@ -1,4 +1,4 @@
-/// <reference path="./throwable.d.ts" />
+/// <reference path="./globals.d.ts" />
 
 declare module "vertx-js/measured" {
   export = Measured;
@@ -7,7 +7,8 @@ declare module "vertx-js/measured" {
 /**
  * @author <a href="mailto:nscavell@redhat.com">Nick Scavelli</a>
  */
-interface Measured
+
+declare interface Measured
 {
 
   /**

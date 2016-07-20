@@ -1,6 +1,6 @@
-/// <reference path="./throwable.d.ts" />
-/// <reference path="./read_stream.d.ts" />
-/// <reference path="./message.d.ts" />
+/// <reference path="./globals.d.ts" />
+/// <reference path="./read_stream" />
+/// <reference path="./message" />
 
 declare module "vertx-js/message_consumer" {
   export = MessageConsumer;
@@ -17,7 +17,8 @@ declare module "vertx-js/message_consumer" {
  * The consumer is unregistered from the event bus using the unregister method or by calling the
  * handler with a null value..
  */
-interface MessageConsumer
+
+declare interface MessageConsumer
   extends
     ReadStream
 {

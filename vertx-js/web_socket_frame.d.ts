@@ -1,5 +1,5 @@
-/// <reference path="./throwable.d.ts" />
-/// <reference path="./buffer.d.ts" />
+/// <reference path="./globals.d.ts" />
+/// <reference path="./buffer" />
 
 declare module "vertx-js/web_socket_frame" {
   export = WebSocketFrame;
@@ -15,7 +15,8 @@ declare module "vertx-js/web_socket_frame" {
  * If there are more than one frames in the message, then the first frame should be a text or binary frame with
  * final = false, followed by one or more continuation frames. The last continuation frame should have final = true.
  */
-interface WebSocketFrame
+
+declare interface WebSocketFrame
 {
 
   /**

@@ -1,6 +1,5 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="./routing_context.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="./routing_context" />
 
 declare module "vertx-web-js/response_time_handler" {
   export = ResponseTimeHandler;
@@ -10,7 +9,8 @@ declare module "vertx-web-js/response_time_handler" {
  * Handler which adds a header `x-response-time` in the response of matching requests containing the time taken
  * in ms to process the request.
  */
-interface ResponseTimeHandler
+
+declare interface ResponseTimeHandler
 {
 
   /**

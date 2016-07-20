@@ -1,6 +1,6 @@
-/// <reference path="./throwable.d.ts" />
-/// <reference path="./server_web_socket.d.ts" />
-/// <reference path="./read_stream.d.ts" />
+/// <reference path="./globals.d.ts" />
+/// <reference path="./server_web_socket" />
+/// <reference path="./read_stream" />
 
 declare module "vertx-js/server_web_socket_stream" {
   export = ServerWebSocketStream;
@@ -10,7 +10,8 @@ declare module "vertx-js/server_web_socket_stream" {
  * A ReadStream of ServerWebSocket, used for
  * notifying web socket connections to a HttpServer.
  */
-interface ServerWebSocketStream
+
+declare interface ServerWebSocketStream
   extends
     ReadStream
 {

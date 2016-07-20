@@ -1,7 +1,6 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="../vertx-auth-common-js/auth_provider.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="../vertx-js/vertx" />
+/// <reference path="../vertx-auth-common-js/auth_provider" />
 
 declare module "vertx-auth-shiro-js/shiro_auth" {
   export = ShiroAuth;
@@ -10,7 +9,8 @@ declare module "vertx-auth-shiro-js/shiro_auth" {
 /**
  * Factory interface for creating Apache Shiro based AuthProvider instances.
  */
-interface ShiroAuth
+
+declare interface ShiroAuth
   extends AuthProvider
 {
 

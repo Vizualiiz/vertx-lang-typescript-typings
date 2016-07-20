@@ -1,5 +1,5 @@
-/// <reference path="./throwable.d.ts" />
-/// <reference path="./multi_map.d.ts" />
+/// <reference path="./globals.d.ts" />
+/// <reference path="./multi_map" />
 
 declare module "vertx-js/message" {
   export = Message;
@@ -15,7 +15,8 @@ declare module "vertx-js/message" {
  * <p>
  * If you want to notify the sender that processing failed, then fail can be called.
  */
-interface Message
+
+declare interface Message
 {
 
   /**

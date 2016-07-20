@@ -1,4 +1,4 @@
-/// <reference path="./throwable.d.ts" />
+/// <reference path="./globals.d.ts" />
 
 declare module "vertx-js/async_map" {
   export = AsyncMap;
@@ -8,7 +8,8 @@ declare module "vertx-js/async_map" {
  *
  * An asynchronous map.
  */
-interface AsyncMap
+
+declare interface AsyncMap
 {
 
   /**

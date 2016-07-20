@@ -1,4 +1,4 @@
-/// <reference path="./throwable.d.ts" />
+/// <reference path="./globals.d.ts" />
 
 declare module "vertx-js/multi_map" {
   export = MultiMap;
@@ -10,7 +10,8 @@ declare module "vertx-js/multi_map" {
  * It's useful in Vert.x to represent things in Vert.x like HTTP headers and HTTP parameters which allow
  * multiple values for keys.
  */
-interface MultiMap
+
+declare interface MultiMap
 {
 
   /**

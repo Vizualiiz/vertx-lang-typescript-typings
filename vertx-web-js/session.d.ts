@@ -1,5 +1,4 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
 
 declare module "vertx-web-js/session" {
   export = Session;
@@ -16,7 +15,8 @@ declare module "vertx-web-js/session" {
  * The context must have first been routed to a SessionHandler
  * for sessions to be available.
  */
-interface Session
+
+declare interface Session
 {
 
   /**

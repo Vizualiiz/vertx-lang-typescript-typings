@@ -1,7 +1,6 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="./command.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="./command" />
+/// <reference path="../vertx-js/vertx" />
 
 declare module "vertx-shell-js/command_resolver" {
   export = CommandResolver;
@@ -10,7 +9,8 @@ declare module "vertx-shell-js/command_resolver" {
 /**
  * A resolver for commands, so the shell can discover commands.
  */
-interface CommandResolver
+
+declare interface CommandResolver
 {
 
   /**

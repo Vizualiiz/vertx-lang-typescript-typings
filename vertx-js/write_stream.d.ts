@@ -1,5 +1,5 @@
-/// <reference path="./throwable.d.ts" />
-/// <reference path="./stream_base.d.ts" />
+/// <reference path="./globals.d.ts" />
+/// <reference path="./stream_base" />
 
 declare module "vertx-js/write_stream" {
   export = WriteStream;
@@ -12,7 +12,8 @@ declare module "vertx-js/write_stream" {
  * Any class that implements this interface can be used by a Pump to pump data from a <code>ReadStream</code>
  * to it.
  */
-interface WriteStream
+
+declare interface WriteStream
   extends
     StreamBase
 {

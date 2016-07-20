@@ -1,4 +1,4 @@
-/// <reference path="./throwable.d.ts" />
+/// <reference path="./globals.d.ts" />
 
 declare module "vertx-js/file_props" {
   export = FileProps;
@@ -8,7 +8,8 @@ declare module "vertx-js/file_props" {
  * Represents properties of a file on the file system.
  * <p>
  */
-interface FileProps
+
+declare interface FileProps
 {
 
   /**

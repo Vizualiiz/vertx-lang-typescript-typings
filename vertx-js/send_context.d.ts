@@ -1,5 +1,5 @@
-/// <reference path="./throwable.d.ts" />
-/// <reference path="./message.d.ts" />
+/// <reference path="./globals.d.ts" />
+/// <reference path="./message" />
 
 declare module "vertx-js/send_context" {
   export = SendContext;
@@ -9,7 +9,8 @@ declare module "vertx-js/send_context" {
  *
  * Encapsulates a message being sent from Vert.x. Used with event bus interceptors
  */
-interface SendContext
+
+declare interface SendContext
 {
 
   /**

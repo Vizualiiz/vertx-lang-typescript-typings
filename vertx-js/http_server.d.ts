@@ -1,9 +1,9 @@
-/// <reference path="./throwable.d.ts" />
-/// <reference path="./http_server_request.d.ts" />
-/// <reference path="./server_web_socket.d.ts" />
-/// <reference path="./measured.d.ts" />
-/// <reference path="./http_server_request_stream.d.ts" />
-/// <reference path="./server_web_socket_stream.d.ts" />
+/// <reference path="./globals.d.ts" />
+/// <reference path="./http_server_request" />
+/// <reference path="./server_web_socket" />
+/// <reference path="./measured" />
+/// <reference path="./http_server_request_stream" />
+/// <reference path="./server_web_socket_stream" />
 
 declare module "vertx-js/http_server" {
   export = HttpServer;
@@ -18,7 +18,8 @@ declare module "vertx-js/http_server" {
  * You receive WebSockets by providing a websocketHandler. As WebSocket connections arrive on the server, the
  * WebSocket is passed to the handler.
  */
-interface HttpServer
+
+declare interface HttpServer
   extends
     Measured
 {

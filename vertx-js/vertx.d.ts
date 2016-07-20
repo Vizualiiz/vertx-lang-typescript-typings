@@ -1,18 +1,17 @@
-/// <reference path="./throwable.d.ts" />
-/// <reference path="./console.d.ts" />
-/// <reference path="./datagram_socket.d.ts" />
-/// <reference path="./http_server.d.ts" />
-/// <reference path="./context.d.ts" />
-/// <reference path="./future.d.ts" />
-/// <reference path="./shared_data.d.ts" />
-/// <reference path="./timeout_stream.d.ts" />
-/// <reference path="./dns_client.d.ts" />
-/// <reference path="./event_bus.d.ts" />
-/// <reference path="./measured.d.ts" />
-/// <reference path="./net_server.d.ts" />
-/// <reference path="./file_system.d.ts" />
-/// <reference path="./net_client.d.ts" />
-/// <reference path="./http_client.d.ts" />
+/// <reference path="./globals.d.ts" />
+/// <reference path="./datagram_socket" />
+/// <reference path="./http_server" />
+/// <reference path="./context" />
+/// <reference path="./future" />
+/// <reference path="./shared_data" />
+/// <reference path="./timeout_stream" />
+/// <reference path="./dns_client" />
+/// <reference path="./event_bus" />
+/// <reference path="./measured" />
+/// <reference path="./net_server" />
+/// <reference path="./file_system" />
+/// <reference path="./net_client" />
+/// <reference path="./http_client" />
 
 declare module "vertx-js/vertx" {
   export = Vertx;
@@ -41,7 +40,8 @@ declare module "vertx-js/vertx" {
  * <p>
  * Please see the user manual for more detailed usage information.
  */
-interface Vertx
+
+declare interface Vertx
   extends
     Measured
 {
@@ -275,7 +275,3 @@ declare var Vertx: {
    */
   currentContext(): Context;
 }
-
-declare var vertx: Vertx;
-
-declare var console: Console;

@@ -1,6 +1,5 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="../vertx-js/vertx" />
 
 declare module "vertx-mail-js/mail_client" {
   export = MailClient;
@@ -11,7 +10,8 @@ declare module "vertx-mail-js/mail_client" {
  * <p>
  * A simple asynchronous API for sending mails from Vert.x applications
  */
-interface MailClient
+
+declare interface MailClient
 {
 
   /**

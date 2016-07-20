@@ -1,6 +1,5 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="./routing_context.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="./routing_context" />
 
 declare module "vertx-web-js/logger_handler" {
   export = LoggerHandler;
@@ -9,7 +8,8 @@ declare module "vertx-web-js/logger_handler" {
 /**
  * A handler which logs request information to the Vert.x logger.
  */
-interface LoggerHandler
+
+declare interface LoggerHandler
 {
 
   /**

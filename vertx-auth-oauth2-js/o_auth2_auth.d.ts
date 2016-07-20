@@ -1,8 +1,7 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="./access_token.d.ts" />
-/// <reference path="../vertx-auth-common-js/auth_provider.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="../vertx-js/vertx" />
+/// <reference path="./access_token" />
+/// <reference path="../vertx-auth-common-js/auth_provider" />
 
 declare module "vertx-auth-oauth2-js/o_auth2_auth" {
   export = OAuth2Auth;
@@ -11,7 +10,8 @@ declare module "vertx-auth-oauth2-js/o_auth2_auth" {
 /**
  * Factory interface for creating OAuth2 based AuthProvider instances.
  */
-interface OAuth2Auth
+
+declare interface OAuth2Auth
   extends AuthProvider
 {
 

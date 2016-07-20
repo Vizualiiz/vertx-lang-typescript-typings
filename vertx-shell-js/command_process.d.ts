@@ -1,10 +1,9 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="../vertx-js/command_line.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="./cli_token.d.ts" />
-/// <reference path="./tty.d.ts" />
-/// <reference path="./session.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="../vertx-js/command_line" />
+/// <reference path="../vertx-js/vertx" />
+/// <reference path="./cli_token" />
+/// <reference path="./tty" />
+/// <reference path="./session" />
 
 declare module "vertx-shell-js/command_process" {
   export = CommandProcess;
@@ -13,7 +12,8 @@ declare module "vertx-shell-js/command_process" {
 /**
  * The command process provides interaction with the process of the command provided by Vert.x Shell.
  */
-interface CommandProcess
+
+declare interface CommandProcess
   extends Tty
 {
 

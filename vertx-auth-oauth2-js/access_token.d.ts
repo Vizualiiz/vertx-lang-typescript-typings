@@ -1,6 +1,5 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="../vertx-auth-common-js/user.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="../vertx-auth-common-js/user" />
 
 declare module "vertx-auth-oauth2-js/access_token" {
   export = AccessToken;
@@ -9,7 +8,8 @@ declare module "vertx-auth-oauth2-js/access_token" {
 /**
  * AccessToken extension to the User interface
  */
-interface AccessToken
+
+declare interface AccessToken
   extends User
 {
 

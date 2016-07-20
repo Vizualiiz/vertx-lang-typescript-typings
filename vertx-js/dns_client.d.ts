@@ -1,6 +1,6 @@
-/// <reference path="./throwable.d.ts" />
-/// <reference path="./mx_record.d.ts" />
-/// <reference path="./srv_record.d.ts" />
+/// <reference path="./globals.d.ts" />
+/// <reference path="./mx_record" />
+/// <reference path="./srv_record" />
 
 declare module "vertx-js/dns_client" {
   export = DnsClient;
@@ -11,7 +11,8 @@ declare module "vertx-js/dns_client" {
  * <p>
  * Please consult the documentation for more information on DNS clients.
  */
-interface DnsClient
+
+declare interface DnsClient
 {
 
   /**

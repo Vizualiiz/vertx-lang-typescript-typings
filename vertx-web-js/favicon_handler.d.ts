@@ -1,6 +1,5 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="./routing_context.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="./routing_context" />
 
 declare module "vertx-web-js/favicon_handler" {
   export = FaviconHandler;
@@ -11,7 +10,8 @@ declare module "vertx-web-js/favicon_handler" {
  * <p>
  * If no file system path is specified it will attempt to serve a resource called `favicon.ico` from the classpath.
  */
-interface FaviconHandler
+
+declare interface FaviconHandler
 {
 
   /**

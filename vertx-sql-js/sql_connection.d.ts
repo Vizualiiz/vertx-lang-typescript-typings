@@ -1,5 +1,4 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
 
 declare module "vertx-sql-js/sql_connection" {
   export = SQLConnection;
@@ -8,7 +7,8 @@ declare module "vertx-sql-js/sql_connection" {
 /**
  * Represents a connection to a SQL database
  */
-interface SQLConnection
+
+declare interface SQLConnection
 {
 
   /**

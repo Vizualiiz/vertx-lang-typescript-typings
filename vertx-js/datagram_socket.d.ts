@@ -1,10 +1,10 @@
-/// <reference path="./throwable.d.ts" />
-/// <reference path="./packet_writestream.d.ts" />
-/// <reference path="./buffer.d.ts" />
-/// <reference path="./datagram_packet.d.ts" />
-/// <reference path="./measured.d.ts" />
-/// <reference path="./read_stream.d.ts" />
-/// <reference path="./socket_address.d.ts" />
+/// <reference path="./globals.d.ts" />
+/// <reference path="./packet_writestream" />
+/// <reference path="./buffer" />
+/// <reference path="./datagram_packet" />
+/// <reference path="./measured" />
+/// <reference path="./read_stream" />
+/// <reference path="./socket_address" />
 
 declare module "vertx-js/datagram_socket" {
   export = DatagramSocket;
@@ -22,7 +22,8 @@ declare module "vertx-js/datagram_socket" {
  * <p>
  * Please consult the documentation for more information on datagram sockets.
  */
-interface DatagramSocket
+
+declare interface DatagramSocket
   extends
     ReadStream
   , 

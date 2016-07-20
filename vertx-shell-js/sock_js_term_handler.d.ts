@@ -1,8 +1,7 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="../vertx-web-js/sock_js_socket.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="./term.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="../vertx-web-js/sock_js_socket" />
+/// <reference path="../vertx-js/vertx" />
+/// <reference path="./term" />
 
 declare module "vertx-shell-js/sock_js_term_handler" {
   export = SockJSTermHandler;
@@ -11,7 +10,8 @@ declare module "vertx-shell-js/sock_js_term_handler" {
 /**
  * @author <a href="mailto:julien@julienviet.com">Julien Viet</a>
  */
-interface SockJSTermHandler
+
+declare interface SockJSTermHandler
 {
 
   /**

@@ -1,10 +1,10 @@
-/// <reference path="./throwable.d.ts" />
-/// <reference path="./http_client_request.d.ts" />
-/// <reference path="./http_client_response.d.ts" />
-/// <reference path="./measured.d.ts" />
-/// <reference path="./web_socket_stream.d.ts" />
-/// <reference path="./multi_map.d.ts" />
-/// <reference path="./web_socket.d.ts" />
+/// <reference path="./globals.d.ts" />
+/// <reference path="./http_client_request" />
+/// <reference path="./http_client_response" />
+/// <reference path="./measured" />
+/// <reference path="./web_socket_stream" />
+/// <reference path="./multi_map" />
+/// <reference path="./web_socket" />
 
 declare module "vertx-js/http_client" {
   export = HttpClient;
@@ -36,7 +36,8 @@ declare module "vertx-js/http_client" {
  * <p>
  * The client is designed to be reused between requests.
  */
-interface HttpClient
+
+declare interface HttpClient
   extends
     Measured
 {

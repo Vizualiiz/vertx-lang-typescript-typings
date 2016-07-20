@@ -1,7 +1,6 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="./sock_js_socket.d.ts" />
-/// <reference path="../vertx-js/future.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="./sock_js_socket" />
+/// <reference path="../vertx-js/future" />
 
 declare module "vertx-web-js/bridge_event" {
   export = BridgeEvent;
@@ -12,7 +11,8 @@ declare module "vertx-web-js/bridge_event" {
  * <p>
  * Please consult the documentation for a full explanation.
  */
-interface BridgeEvent
+
+declare interface BridgeEvent
   extends Future
 {
 
@@ -22,10 +22,22 @@ interface BridgeEvent
   type(): any;
 
   /**
+   * Use getRawMessage instead, will be removed in 3.3
+   */
+  rawMessage(): any;
+
+  /**
+   * Get the raw JSON message for the event. This will be null for SOCKET_CREATED or SOCKET_CLOSED events as there is
+   * no message involved. If the returned message is modified, setRawMessage should be called with the
+   * new message.
+   */
+  getRawMessage(): any;
+
+  /**
    * Get the raw JSON message for the event. This will be null for SOCKET_CREATED or SOCKET_CLOSED events as there is
    * no message involved.
    */
-  rawMessage(): any;
+  setRawMessage(message: any): BridgeEvent;
 
   /**
    * Get the SockJSSocket instance corresponding to the event

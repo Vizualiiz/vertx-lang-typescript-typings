@@ -1,8 +1,7 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="./command.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="./command_resolver.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="./command" />
+/// <reference path="../vertx-js/vertx" />
+/// <reference path="./command_resolver" />
 
 declare module "vertx-shell-js/command_registry" {
   export = CommandRegistry;
@@ -13,7 +12,8 @@ declare module "vertx-shell-js/command_registry" {
  *
  * It is a mutable command resolver.
  */
-interface CommandRegistry
+
+declare interface CommandRegistry
   extends CommandResolver
 {
 

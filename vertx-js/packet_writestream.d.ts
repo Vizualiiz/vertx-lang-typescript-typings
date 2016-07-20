@@ -1,6 +1,6 @@
-/// <reference path="./throwable.d.ts" />
-/// <reference path="./buffer.d.ts" />
-/// <reference path="./write_stream.d.ts" />
+/// <reference path="./globals.d.ts" />
+/// <reference path="./buffer" />
+/// <reference path="./write_stream" />
 
 declare module "vertx-js/packet_writestream" {
   export = PacketWritestream;
@@ -10,7 +10,8 @@ declare module "vertx-js/packet_writestream" {
  * A WriteStream for sending packets to a SocketAddress.
  * The stream  is called when the write fails.
  */
-interface PacketWritestream
+
+declare interface PacketWritestream
   extends
     WriteStream
 {

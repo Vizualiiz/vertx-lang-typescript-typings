@@ -1,7 +1,7 @@
-/// <reference path="./throwable.d.ts" />
-/// <reference path="./buffer.d.ts" />
-/// <reference path="./write_stream.d.ts" />
-/// <reference path="./multi_map.d.ts" />
+/// <reference path="./globals.d.ts" />
+/// <reference path="./buffer" />
+/// <reference path="./write_stream" />
+/// <reference path="./multi_map" />
 
 declare module "vertx-js/http_server_response" {
   export = HttpServerResponse;
@@ -27,7 +27,8 @@ declare module "vertx-js/http_server_response" {
  * It implements WriteStream so it can be used with
  * Pump to pump data with flow control.
  */
-interface HttpServerResponse
+
+declare interface HttpServerResponse
   extends
     WriteStream
 {

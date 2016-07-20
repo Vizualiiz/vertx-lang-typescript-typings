@@ -1,6 +1,5 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="./tty.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="./tty" />
 
 declare module "vertx-shell-js/pty" {
   export = Pty;
@@ -10,7 +9,8 @@ declare module "vertx-shell-js/pty" {
  * A pseudo terminal used for controlling a Tty. This interface acts as a pseudo
  * terminal master, slave returns the assocated slave pseudo terminal.
  */
-interface Pty
+
+declare interface Pty
 {
 
   /**

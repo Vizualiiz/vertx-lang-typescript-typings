@@ -1,10 +1,9 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="./command.d.ts" />
-/// <reference path="./completion.d.ts" />
-/// <reference path="../vertx-js/cli.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="./command_process.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="./command" />
+/// <reference path="./completion" />
+/// <reference path="../vertx-js/cli" />
+/// <reference path="../vertx-js/vertx" />
+/// <reference path="./command_process" />
 
 declare module "vertx-shell-js/command_builder" {
   export = CommandBuilder;
@@ -13,7 +12,8 @@ declare module "vertx-shell-js/command_builder" {
 /**
  * A build for Vert.x Shell command.
  */
-interface CommandBuilder
+
+declare interface CommandBuilder
 {
 
   /**

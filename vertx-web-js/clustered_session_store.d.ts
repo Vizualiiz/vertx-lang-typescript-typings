@@ -1,7 +1,6 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="./session_store.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="./session_store" />
+/// <reference path="../vertx-js/vertx" />
 
 declare module "vertx-web-js/clustered_session_store" {
   export = ClusteredSessionStore;
@@ -10,7 +9,8 @@ declare module "vertx-web-js/clustered_session_store" {
 /**
  * A session store which stores sessions in a distributed map so they are available across the cluster.
  */
-interface ClusteredSessionStore
+
+declare interface ClusteredSessionStore
   extends SessionStore
 {
 }

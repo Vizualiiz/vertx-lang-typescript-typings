@@ -1,9 +1,9 @@
-/// <reference path="./throwable.d.ts" />
-/// <reference path="./buffer.d.ts" />
-/// <reference path="./write_stream.d.ts" />
-/// <reference path="./read_stream.d.ts" />
-/// <reference path="./web_socket_frame.d.ts" />
-/// <reference path="./socket_address.d.ts" />
+/// <reference path="./globals.d.ts" />
+/// <reference path="./buffer" />
+/// <reference path="./write_stream" />
+/// <reference path="./read_stream" />
+/// <reference path="./web_socket_frame" />
+/// <reference path="./socket_address" />
 
 declare module "vertx-js/web_socket_base" {
   export = WebSocketBase;
@@ -15,7 +15,8 @@ declare module "vertx-js/web_socket_base" {
  * It implements both  and  so it can be used with
  * Pump to pump data with flow control.
  */
-interface WebSocketBase
+
+declare interface WebSocketBase
   extends
     ReadStream
   , 

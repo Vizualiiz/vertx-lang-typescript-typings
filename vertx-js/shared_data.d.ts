@@ -1,8 +1,8 @@
-/// <reference path="./throwable.d.ts" />
-/// <reference path="./async_map.d.ts" />
-/// <reference path="./lock.d.ts" />
-/// <reference path="./local_map.d.ts" />
-/// <reference path="./counter.d.ts" />
+/// <reference path="./globals.d.ts" />
+/// <reference path="./async_map" />
+/// <reference path="./lock" />
+/// <reference path="./local_map" />
+/// <reference path="./counter" />
 
 declare module "vertx-js/shared_data" {
   export = SharedData;
@@ -21,7 +21,8 @@ declare module "vertx-js/shared_data" {
  * <p>
  * Please see the documentation for more information.
  */
-interface SharedData
+
+declare interface SharedData
 {
 
   /**

@@ -1,4 +1,4 @@
-/// <reference path="./throwable.d.ts" />
+/// <reference path="./globals.d.ts" />
 
 declare module "vertx-js/future" {
   export = Future;
@@ -8,7 +8,8 @@ declare module "vertx-js/future" {
  * Represents the result of an action that may, or may not, have occurred yet.
  * <p>
  */
-interface Future
+
+declare interface Future
 {
 
   /**
@@ -24,7 +25,7 @@ interface Future
    * If the future has already been completed it will be called immediately. Otherwise it will be called when the
    * future is completed.
    */
-  setHandler(handler: (res: any, err?: Throwable) => void): void;
+  setHandler(handler: (res: any, err?: Throwable) => void): Future;
 
   /**
    * Set the result. Any handler will be called, if there is one, and the future will be marked as completed.
@@ -39,7 +40,46 @@ interface Future
   /**
    * Set the failure. Any handler will be called, if there is one, and the future will be marked as completed.
    */
+  fail(throwable: Throwable): void;
+
+  /**
+   * Set the failure. Any handler will be called, if there is one, and the future will be marked as completed.
+   */
   fail(failureMessage: string): void;
+
+  /**
+   * The result of the operation. This will be null if the operation failed.
+   */
+  result(): any;
+
+  /**
+   * A Throwable describing failure. This will be null if the operation succeeded.
+   */
+  cause(): Throwable;
+
+  /**
+   * Did it succeed?
+   */
+  succeeded(): boolean;
+
+  /**
+   * Did it fail?
+   */
+  failed(): boolean;
+
+  /**
+   * Compose this future with another future.
+ *
+   * When this future succeeds, the handler will be called with the value.
+ *
+   * When this future fails, the failure will be propagated to the <code>next</code> future.
+   */
+  compose(handler: (e: any) => void, next: Future): void;
+
+  /**
+   * @return an handler completing this future
+   */
+  completer(): (res: any, err?: Throwable) => void;
 }
 
 declare var Future: {

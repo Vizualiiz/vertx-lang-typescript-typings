@@ -1,7 +1,7 @@
-/// <reference path="./throwable.d.ts" />
-/// <reference path="./buffer.d.ts" />
-/// <reference path="./write_stream.d.ts" />
-/// <reference path="./read_stream.d.ts" />
+/// <reference path="./globals.d.ts" />
+/// <reference path="./buffer" />
+/// <reference path="./write_stream" />
+/// <reference path="./read_stream" />
 
 declare module "vertx-js/async_file" {
   export = AsyncFile;
@@ -15,7 +15,8 @@ declare module "vertx-js/async_file" {
  * other streams, e.g. an HttpClientRequest instance,
  * using the Pump class
  */
-interface AsyncFile
+
+declare interface AsyncFile
   extends
     ReadStream
   , 

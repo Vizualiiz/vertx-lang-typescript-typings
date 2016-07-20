@@ -1,4 +1,4 @@
-/// <reference path="./throwable.d.ts" />
+/// <reference path="./globals.d.ts" />
 
 declare module "vertx-js/stream_base" {
   export = StreamBase;
@@ -7,7 +7,8 @@ declare module "vertx-js/stream_base" {
 /**
  * Base interface for a stream.
  */
-interface StreamBase
+
+declare interface StreamBase
 {
 
   /**

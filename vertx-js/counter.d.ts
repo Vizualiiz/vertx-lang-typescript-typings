@@ -1,4 +1,4 @@
-/// <reference path="./throwable.d.ts" />
+/// <reference path="./globals.d.ts" />
 
 declare module "vertx-js/counter" {
   export = Counter;
@@ -8,7 +8,8 @@ declare module "vertx-js/counter" {
  * An asynchronous counter that can be used to across the cluster to maintain a consistent count.
  * <p>
  */
-interface Counter
+
+declare interface Counter
 {
 
   /**

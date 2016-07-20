@@ -1,6 +1,5 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="./routing_context.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="./routing_context" />
 
 declare module "vertx-web-js/auth_handler" {
   export = AuthHandler;
@@ -13,7 +12,8 @@ declare module "vertx-web-js/auth_handler" {
  * <p>
  * Auth handler requires a SessionHandler to be on the routing chain before it.
  */
-interface AuthHandler
+
+declare interface AuthHandler
 {
 
   /**

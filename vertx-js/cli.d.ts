@@ -1,5 +1,5 @@
-/// <reference path="./throwable.d.ts" />
-/// <reference path="./command_line.d.ts" />
+/// <reference path="./globals.d.ts" />
+/// <reference path="./command_line" />
 
 declare module "vertx-js/cli" {
   export = CLI;
@@ -20,18 +20,19 @@ declare module "vertx-js/cli" {
  * Command Line Interface object does not contains "value", it's a model. It must be evaluated by a
  * parser that returns a CommandLine object containing the argument and option values.
  */
-interface CLI
+
+declare interface CLI
 {
 
   /**
    * Parses the user command line interface and create a new CommandLine containing extracting values.
    */
-  parse(arguments: Array<string>): CommandLine;
+  parse(args: Array<string>): CommandLine;
 
   /**
    * Parses the user command line interface and create a new CommandLine containing extracting values.
    */
-  parse(arguments: Array<string>, validate: boolean): CommandLine;
+  parse(args: Array<string>, validate: boolean): CommandLine;
 
   /**
    * @return the CLI name.

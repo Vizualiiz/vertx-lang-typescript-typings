@@ -1,9 +1,8 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="./job.d.ts" />
-/// <reference path="./job_controller.d.ts" />
-/// <reference path="./cli_token.d.ts" />
-/// <reference path="./session.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="./job" />
+/// <reference path="./job_controller" />
+/// <reference path="./cli_token" />
+/// <reference path="./session" />
 
 declare module "vertx-shell-js/shell" {
   export = Shell;
@@ -12,7 +11,8 @@ declare module "vertx-shell-js/shell" {
 /**
  * An interactive session between a consumer and a shell.
  */
-interface Shell
+
+declare interface Shell
 {
 
   /**

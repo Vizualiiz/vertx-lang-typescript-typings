@@ -1,5 +1,4 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
 
 declare module "vertx-shell-js/session" {
   export = ShellSession;
@@ -8,7 +7,8 @@ declare module "vertx-shell-js/session" {
 /**
  * A shell session.
  */
-interface ShellSession
+
+declare interface ShellSession
 {
 
   /**

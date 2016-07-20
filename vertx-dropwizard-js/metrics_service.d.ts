@@ -1,7 +1,6 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="../vertx-js/measured.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="../vertx-js/measured" />
+/// <reference path="../vertx-js/vertx" />
 
 declare module "vertx-dropwizard-js/metrics_service" {
   export = MetricsService;
@@ -10,7 +9,8 @@ declare module "vertx-dropwizard-js/metrics_service" {
 /**
  * The metrics service mainly allows to return a snapshot of measured objects.
  */
-interface MetricsService
+
+declare interface MetricsService
 {
 
   /**

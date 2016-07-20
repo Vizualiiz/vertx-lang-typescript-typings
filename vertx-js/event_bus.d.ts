@@ -1,9 +1,9 @@
-/// <reference path="./throwable.d.ts" />
-/// <reference path="./measured.d.ts" />
-/// <reference path="./send_context.d.ts" />
-/// <reference path="./message.d.ts" />
-/// <reference path="./message_consumer.d.ts" />
-/// <reference path="./message_producer.d.ts" />
+/// <reference path="./globals.d.ts" />
+/// <reference path="./measured" />
+/// <reference path="./send_context" />
+/// <reference path="./message" />
+/// <reference path="./message_consumer" />
+/// <reference path="./message_producer" />
 
 declare module "vertx-js/event_bus" {
   export = EventBus;
@@ -19,7 +19,8 @@ declare module "vertx-js/event_bus" {
  * <p>
  * Please refer to the documentation for more information on the event bus.
  */
-interface EventBus
+
+declare interface EventBus
   extends
     Measured
 {

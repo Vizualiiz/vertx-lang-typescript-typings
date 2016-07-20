@@ -1,15 +1,14 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="./route.d.ts" />
-/// <reference path="./cookie.d.ts" />
-/// <reference path="./locale.d.ts" />
-/// <reference path="./file_upload.d.ts" />
-/// <reference path="../vertx-js/http_server_request.d.ts" />
-/// <reference path="./session.d.ts" />
-/// <reference path="../vertx-auth-common-js/user.d.ts" />
-/// <reference path="../vertx-js/buffer.d.ts" />
-/// <reference path="../vertx-js/http_server_response.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="./route" />
+/// <reference path="./cookie" />
+/// <reference path="./locale" />
+/// <reference path="./file_upload" />
+/// <reference path="../vertx-js/http_server_request" />
+/// <reference path="./session" />
+/// <reference path="../vertx-auth-common-js/user" />
+/// <reference path="../vertx-js/buffer" />
+/// <reference path="../vertx-js/http_server_response" />
+/// <reference path="../vertx-js/vertx" />
 
 declare module "vertx-web-js/routing_context" {
   export = RoutingContext;
@@ -31,7 +30,8 @@ declare module "vertx-web-js/routing_context" {
  * The context also provides access to the Session, cookies and body for the request, given the correct handlers
  * in the application.
  */
-interface RoutingContext
+
+declare interface RoutingContext
 {
 
   /**
@@ -158,6 +158,12 @@ interface RoutingContext
    * BodyHandler for this to be populated.
    */
   getBodyAsJson(): any;
+
+  /**
+   * @return Get the entire HTTP request body as a . The context must have first been routed to a
+   * BodyHandler for this to be populated.
+   */
+  getBodyAsJsonArray(): any[];
 
   /**
    * @return Get the entire HTTP request body as a . The context must have first been routed to a

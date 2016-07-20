@@ -1,6 +1,5 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="./template_engine.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="./template_engine" />
 
 declare module "vertx-web-js/jade_template_engine" {
   export = JadeTemplateEngine;
@@ -9,7 +8,8 @@ declare module "vertx-web-js/jade_template_engine" {
 /**
  * A template engine that uses Jade.
  */
-interface JadeTemplateEngine
+
+declare interface JadeTemplateEngine
   extends TemplateEngine
 {
 

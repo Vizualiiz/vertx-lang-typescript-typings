@@ -1,8 +1,7 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="./cli_token.d.ts" />
-/// <reference path="./session.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="../vertx-js/vertx" />
+/// <reference path="./cli_token" />
+/// <reference path="./session" />
 
 declare module "vertx-shell-js/completion" {
   export = Completion;
@@ -11,7 +10,8 @@ declare module "vertx-shell-js/completion" {
 /**
  * The completion object
  */
-interface Completion
+
+declare interface Completion
 {
 
   /**

@@ -1,4 +1,4 @@
-/// <reference path="./throwable.d.ts" />
+/// <reference path="./globals.d.ts" />
 
 declare module "vertx-js/local_map" {
   export = LocalMap;
@@ -13,7 +13,8 @@ declare module "vertx-js/local_map" {
  * This ensures there is no shared access to mutable state from different threads (e.g. different event loops) in the
  * Vert.x instance, and means you don't have to protect access to that state using synchronization or locks.
  */
-interface LocalMap
+
+declare interface LocalMap
 {
 
   /**

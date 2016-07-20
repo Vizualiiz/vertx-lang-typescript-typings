@@ -1,5 +1,5 @@
-/// <reference path="./throwable.d.ts" />
-/// <reference path="./buffer.d.ts" />
+/// <reference path="./globals.d.ts" />
+/// <reference path="./buffer" />
 
 declare module "vertx-js/record_parser" {
   export = RecordParser;
@@ -36,7 +36,8 @@ declare module "vertx-js/record_parser" {
  * <p>
  * Please see the documentation for more information.
  */
-interface RecordParser
+
+declare interface RecordParser
 {
   setOutput(output: (e: Buffer) => void): void;
 

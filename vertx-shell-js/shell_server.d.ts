@@ -1,10 +1,9 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="./term_server.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="./shell.d.ts" />
-/// <reference path="./command_resolver.d.ts" />
-/// <reference path="./term.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="./term_server" />
+/// <reference path="../vertx-js/vertx" />
+/// <reference path="./shell" />
+/// <reference path="./command_resolver" />
+/// <reference path="./term" />
 
 declare module "vertx-shell-js/shell_server" {
   export = ShellServer;
@@ -21,7 +20,8 @@ declare module "vertx-shell-js/shell_server" {
  *
  * The createShell method can be used to create  instance for testing purposes.
  */
-interface ShellServer
+
+declare interface ShellServer
 {
 
   /**

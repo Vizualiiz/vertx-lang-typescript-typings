@@ -1,8 +1,7 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="./auth_handler.d.ts" />
-/// <reference path="./routing_context.d.ts" />
-/// <reference path="../vertx-auth-common-js/auth_provider.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="./auth_handler" />
+/// <reference path="./routing_context" />
+/// <reference path="../vertx-auth-common-js/auth_provider" />
 
 declare module "vertx-web-js/jwt_auth_handler" {
   export = JWTAuthHandler;
@@ -11,7 +10,8 @@ declare module "vertx-web-js/jwt_auth_handler" {
 /**
  * An auth handler that provides JWT Authentication support.
  */
-interface JWTAuthHandler
+
+declare interface JWTAuthHandler
   extends
     AuthHandler
 {

@@ -1,6 +1,5 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="./routing_context.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="./routing_context" />
 
 declare module "vertx-web-js/static_handler" {
   export = StaticHandler;
@@ -9,7 +8,8 @@ declare module "vertx-web-js/static_handler" {
 /**
  * A handler for serving static resources from the file system or classpath.
  */
-interface StaticHandler
+
+declare interface StaticHandler
 {
 
   /**

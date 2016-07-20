@@ -1,4 +1,4 @@
-/// <reference path="./throwable.d.ts" />
+/// <reference path="./globals.d.ts" />
 
 declare module "vertx-js/lock" {
   export = Lock;
@@ -10,7 +10,8 @@ declare module "vertx-js/lock" {
  * When the lock is obtained, no-one else in the cluster can obtain the lock with the same name until the lock
  * is released.
  */
-interface Lock
+
+declare interface Lock
 {
 
   /**

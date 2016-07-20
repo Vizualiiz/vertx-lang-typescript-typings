@@ -1,7 +1,6 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="./session_store.d.ts" />
-/// <reference path="./routing_context.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="./session_store" />
+/// <reference path="./routing_context" />
 
 declare module "vertx-web-js/session_handler" {
   export = SessionHandler;
@@ -17,7 +16,8 @@ declare module "vertx-web-js/session_handler" {
  * <p>
  * The session handler requires a CookieHandler to be on the routing chain before it.
  */
-interface SessionHandler
+
+declare interface SessionHandler
 {
 
   /**

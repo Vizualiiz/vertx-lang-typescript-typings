@@ -1,8 +1,8 @@
-/// <reference path="./throwable.d.ts" />
-/// <reference path="./web_socket_base.d.ts" />
-/// <reference path="./buffer.d.ts" />
-/// <reference path="./web_socket_frame.d.ts" />
-/// <reference path="./socket_address.d.ts" />
+/// <reference path="./globals.d.ts" />
+/// <reference path="./web_socket_base" />
+/// <reference path="./buffer" />
+/// <reference path="./web_socket_frame" />
+/// <reference path="./socket_address" />
 
 declare module "vertx-js/web_socket" {
   export = WebSocket;
@@ -11,7 +11,8 @@ declare module "vertx-js/web_socket" {
 /**
  * Represents a client-side WebSocket.
  */
-interface WebSocket
+
+declare interface WebSocket
   extends
     WebSocketBase
 {

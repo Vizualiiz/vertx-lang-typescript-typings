@@ -1,6 +1,6 @@
-/// <reference path="./throwable.d.ts" />
-/// <reference path="./http_server_request.d.ts" />
-/// <reference path="./read_stream.d.ts" />
+/// <reference path="./globals.d.ts" />
+/// <reference path="./http_server_request" />
+/// <reference path="./read_stream" />
 
 declare module "vertx-js/http_server_request_stream" {
   export = HttpServerRequestStream;
@@ -10,7 +10,8 @@ declare module "vertx-js/http_server_request_stream" {
  * A ReadStream of HttpServerRequest, used for
  * notifying http request to a HttpServer.
  */
-interface HttpServerRequestStream
+
+declare interface HttpServerRequestStream
   extends
     ReadStream
 {

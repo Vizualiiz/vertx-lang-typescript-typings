@@ -1,7 +1,6 @@
-/// <reference path="../vertx-js/throwable.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
-/// <reference path="./shell_server.d.ts" />
-/// <reference path="../vertx-js/vertx.d.ts" />
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="./shell_server" />
+/// <reference path="../vertx-js/vertx" />
 
 declare module "vertx-shell-js/shell_service" {
   export = ShellService;
@@ -14,7 +13,8 @@ declare module "vertx-shell-js/shell_service" {
  * The shell service will expose commands using CommandResolver on the classpath and
  * the shared command registry for the Vert.x instance.
  */
-interface ShellService
+
+declare interface ShellService
 {
 
   /**
