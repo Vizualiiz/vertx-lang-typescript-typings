@@ -1,57 +1,48 @@
-/// <reference path="./globals.d.ts" />
-
-declare module "vertx-js/file_props" {
-  export = FileProps;
-}
+/// <reference path="./globals.d.ts" />declare module "vertx-js/file_props" {  export = FileProps;}
 
 /**
  * Represents properties of a file on the file system.
  * <p>
  */
 
-declare interface FileProps
-{
+declare interface FileProps{            
 
-  /**
+/**
    * The date the file was created
    */
-  creationTime(): number;
+  creationTime(): number;              
 
-  /**
+/**
    * The date the file was last accessed
    */
-  lastAccessTime(): number;
+  lastAccessTime(): number;              
 
-  /**
+/**
    * The date the file was last modified
    */
-  lastModifiedTime(): number;
+  lastModifiedTime(): number;              
 
-  /**
+/**
    * Is the file a directory?
    */
-  isDirectory(): boolean;
+  isDirectory(): boolean;              
 
-  /**
+/**
    * Is the file some other type? (I.e. not a directory, regular file or symbolic link)
    */
-  isOther(): boolean;
+  isOther(): boolean;              
 
-  /**
+/**
    * Is the file a regular file?
    */
-  isRegularFile(): boolean;
+  isRegularFile(): boolean;              
 
-  /**
+/**
    * Is the file a symbolic link?
    */
-  isSymbolicLink(): boolean;
+  isSymbolicLink(): boolean;              
 
-  /**
+/**
    * The size of the file, in bytes
    */
-  size(): number;
-}
-
-declare var FileProps: {
-}
+  size(): number;    }                declare var FileProps: {}

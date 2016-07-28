@@ -1,10 +1,4 @@
-/// <reference path="../vertx-js/globals.d.ts" />
-/// <reference path="./routing_context" />
-/// <reference path="../vertx-auth-common-js/auth_provider" />
-
-declare module "vertx-web-js/user_session_handler" {
-  export = UserSessionHandler;
-}
+/// <reference path="../vertx-js/globals.d.ts" />/// <reference path="./routing_context" />/// <reference path="../vertx-auth-common-js/auth_provider" />declare module "vertx-web-js/user_session_handler" {  export = UserSessionHandler;}
 
 /**
  *
@@ -17,19 +11,14 @@ declare module "vertx-web-js/user_session_handler" {
  * to associate the session with.
  */
 
-declare interface UserSessionHandler
-{
+declare interface UserSessionHandler{            
 
-  /**
+/**
    * Something has happened, so handle it.
    */
-  handle(event: RoutingContext): void;
-}
+  handle(event: RoutingContext): void;            }    declare var UserSessionHandler: {            
 
-declare var UserSessionHandler: {
-
-  /**
+/**
    * Create a new handler
    */
-  create(authProvider: AuthProvider): UserSessionHandler;
-}
+  create(authProvider: AuthProvider): UserSessionHandler;  }

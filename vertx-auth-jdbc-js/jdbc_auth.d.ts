@@ -1,44 +1,32 @@
-/// <reference path="../vertx-js/globals.d.ts" />
-/// <reference path="../vertx-jdbc-js/jdbc_client" />
-/// <reference path="../vertx-auth-common-js/auth_provider" />
-
-declare module "vertx-auth-jdbc-js/jdbc_auth" {
-  export = JDBCAuth;
-}
+/// <reference path="../vertx-js/globals.d.ts" />/// <reference path="../vertx-jdbc-js/jdbc_client" />/// <reference path="../vertx-auth-common-js/auth_provider" />declare module "vertx-auth-jdbc-js/jdbc_auth" {  export = JDBCAuth;}
 
 /**
  * Factory interface for creating AuthProvider instances that use the Vert.x JDBC client
  */
 
-declare interface JDBCAuth
-  extends AuthProvider
-{
+declare interface JDBCAuth  extends AuthProvider{                    
 
-  /**
+/**
    * Set the authentication query to use. Use this if you want to override the default authentication query.
    */
-  setAuthenticationQuery(authenticationQuery: string): JDBCAuth;
+  setAuthenticationQuery(authenticationQuery: string): JDBCAuth;              
 
-  /**
+/**
    * Set the roles query to use. Use this if you want to override the default roles query.
    */
-  setRolesQuery(rolesQuery: string): JDBCAuth;
+  setRolesQuery(rolesQuery: string): JDBCAuth;              
 
-  /**
+/**
    * Set the permissions query to use. Use this if you want to override the default permissions query.
    */
-  setPermissionsQuery(permissionsQuery: string): JDBCAuth;
+  setPermissionsQuery(permissionsQuery: string): JDBCAuth;              
 
-  /**
+/**
    * Set the role prefix to distinguish from permissions when checking for isPermitted requests.
    */
-  setRolePrefix(rolePrefix: string): JDBCAuth;
-}
+  setRolePrefix(rolePrefix: string): JDBCAuth;    }          declare var JDBCAuth: {        
 
-declare var JDBCAuth: {
-
-  /**
+/**
    * Create a JDBC auth provider implementation
    */
-  create(client: JDBCClient): JDBCAuth;
-}
+  create(client: JDBCClient): JDBCAuth;                  }

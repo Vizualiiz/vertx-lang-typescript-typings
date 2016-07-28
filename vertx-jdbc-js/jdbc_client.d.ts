@@ -1,45 +1,34 @@
-/// <reference path="../vertx-js/globals.d.ts" />
-/// <reference path="../vertx-js/vertx" />
-/// <reference path="../vertx-sql-js/sql_connection" />
-
-declare module "vertx-jdbc-js/jdbc_client" {
-  export = JDBCClient;
-}
+/// <reference path="../vertx-js/globals.d.ts" />/// <reference path="../vertx-js/vertx" />/// <reference path="../vertx-sql-js/sql_connection" />declare module "vertx-jdbc-js/jdbc_client" {  export = JDBCClient;}
 
 /**
  * An asynchronous client interface for interacting with a JDBC compliant database
  */
 
-declare interface JDBCClient
-{
+declare interface JDBCClient{                                    
 
-  /**
+/**
    * Returns a connection that can be used to perform SQL operations on. It's important to remember
-   * to close the connection when you are done, so it is returned to the pool.
+ * to close the connection when you are done, so it is returned to the pool.
    */
-  getConnection(handler: (res: SQLConnection, err?: Throwable) => void): JDBCClient;
+  getConnection(handler: (res: SQLConnection, err?: Throwable) => void): JDBCClient;              
 
-  /**
+/**
    * Close the client
    */
-  close(): void;
-}
+  close(): void;    }          declare var JDBCClient: {        
 
-declare var JDBCClient: {
-
-  /**
+/**
    * Create a JDBC client which maintains its own data source.
    */
-  createNonShared(vertx: Vertx, config: any): JDBCClient;
+  createNonShared(vertx: Vertx, config: any): JDBCClient;          
 
-  /**
+/**
    * Create a JDBC client which shares its data source with any other JDBC clients created with the same
-   * data source name
+ * data source name
    */
-  createShared(vertx: Vertx, config: any, dataSourceName: string): JDBCClient;
+  createShared(vertx: Vertx, config: any, dataSourceName: string): JDBCClient;          
 
-  /**
+/**
    * Like createShared but with the default data source name
    */
-  createShared(vertx: Vertx, config: any): JDBCClient;
-}
+  createShared(vertx: Vertx, config: any): JDBCClient;          }

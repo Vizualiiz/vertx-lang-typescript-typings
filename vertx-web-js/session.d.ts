@@ -1,8 +1,4 @@
-/// <reference path="../vertx-js/globals.d.ts" />
-
-declare module "vertx-web-js/session" {
-  export = Session;
-}
+/// <reference path="../vertx-js/globals.d.ts" />declare module "vertx-web-js/session" {  export = Session;}
 
 /**
  * Represents a browser session.
@@ -16,54 +12,49 @@ declare module "vertx-web-js/session" {
  * for sessions to be available.
  */
 
-declare interface Session
-{
+declare interface Session{            
 
-  /**
+/**
    * @return The unique ID of the session. This is generated using a random secure UUID.
    */
-  id(): string;
+  id(): string;              
 
-  /**
+/**
    * Put some data in a session
    */
-  put(key: string, obj: any): Session;
+  put(key: string, obj: any): Session;              
 
-  /**
+/**
    * Get some data from the session
    */
-  get(key: string): any;
+  get(key: string): any;              
 
-  /**
+/**
    * Remove some data from the session
    */
-  remove(key: string): any;
+  remove(key: string): any;              
 
-  /**
+/**
    * @return the time the session was last accessed
    */
-  lastAccessed(): number;
+  lastAccessed(): number;              
 
-  /**
+/**
    * Destroy the session
    */
-  destroy(): void;
+  destroy(): void;              
 
-  /**
+/**
    * @return has the session been destroyed?
    */
-  isDestroyed(): boolean;
+  isDestroyed(): boolean;              
 
-  /**
+/**
    * @return the amount of time in ms, after which the session will expire, if not accessed.
    */
-  timeout(): number;
+  timeout(): number;              
 
-  /**
+/**
    * Mark the session as being accessed.
    */
-  setAccessed(): void;
-}
-
-declare var Session: {
-}
+  setAccessed(): void;    }                  declare var Session: {}

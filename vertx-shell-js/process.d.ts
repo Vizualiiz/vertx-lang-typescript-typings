@@ -1,143 +1,132 @@
-/// <reference path="../vertx-js/globals.d.ts" />
-/// <reference path="./tty" />
-/// <reference path="./session" />
-
-declare module "vertx-shell-js/process" {
-  export = Process;
-}
+/// <reference path="../vertx-js/globals.d.ts" />/// <reference path="./tty" />/// <reference path="./session" />declare module "vertx-shell-js/process" {  export = Process;}
 
 /**
  * A process managed by the shell.
  */
 
-declare interface Process
-{
+declare interface Process{            
 
-  /**
+/**
    * @return the current process status
    */
-  status(): any;
+  status(): any;              
 
-  /**
+/**
    * @return the process exit code when the status is  otherwise <code>null</code>
    */
-  exitCode(): number;
+  exitCode(): number;              
 
-  /**
+/**
    * Set the process tty.
    */
-  setTty(tty: Tty): Process;
+  setTty(tty: Tty): Process;              
 
-  /**
+/**
    * @return the process tty
    */
-  getTty(): Tty;
+  getTty(): Tty;              
 
-  /**
+/**
    * Set the process session
    */
-  setSession(session: ShellSession): Process;
+  setSession(session: ShellSession): Process;              
 
-  /**
+/**
    * @return the process session
    */
-  getSession(): ShellSession;
+  getSession(): ShellSession;              
 
-  /**
+/**
    * Set an handler for being notified when the process terminates.
    */
-  terminatedHandler(handler: (e: number) => void): Process;
+  terminatedHandler(handler: (e: number) => void): Process;              
 
-  /**
+/**
    * Run the process.
    */
-  run(): void;
+  run(): void;              
 
-  /**
+/**
    * Run the process.
    */
-  run(foreground: boolean): void;
+  run(foreground: boolean): void;              
 
-  /**
+/**
    * Run the process.
    */
-  run(completionHandler: (e: void) => void): void;
+  run(completionHandler: (e: void) => void): void;              
 
-  /**
+/**
    * Run the process.
    */
-  run(foregraound: boolean, completionHandler: (e: void) => void): void;
+  run(foregraound: boolean, completionHandler: (e: void) => void): void;              
 
-  /**
+/**
    * Attempt to interrupt the process.
    */
-  interrupt(): boolean;
+  interrupt(): boolean;              
 
-  /**
+/**
    * Attempt to interrupt the process.
    */
-  interrupt(completionHandler: (e: void) => void): boolean;
+  interrupt(completionHandler: (e: void) => void): boolean;              
 
-  /**
+/**
    * Suspend the process.
    */
-  resume(): void;
+  resume(): void;              
 
-  /**
+/**
    * Suspend the process.
    */
-  resume(foreground: boolean): void;
+  resume(foreground: boolean): void;              
 
-  /**
+/**
    * Suspend the process.
    */
-  resume(completionHandler: (e: void) => void): void;
+  resume(completionHandler: (e: void) => void): void;              
 
-  /**
+/**
    * Suspend the process.
    */
-  resume(foreground: boolean, completionHandler: (e: void) => void): void;
+  resume(foreground: boolean, completionHandler: (e: void) => void): void;              
 
-  /**
+/**
    * Resume the process.
    */
-  suspend(): void;
+  suspend(): void;              
 
-  /**
+/**
    * Resume the process.
    */
-  suspend(completionHandler: (e: void) => void): void;
+  suspend(completionHandler: (e: void) => void): void;              
 
-  /**
+/**
    * Terminate the process.
    */
-  terminate(): void;
+  terminate(): void;              
 
-  /**
+/**
    * Terminate the process.
    */
-  terminate(completionHandler: (e: void) => void): void;
+  terminate(completionHandler: (e: void) => void): void;              
 
-  /**
+/**
    * Set the process in background.
    */
-  toBackground(): void;
+  toBackground(): void;              
 
-  /**
+/**
    * Set the process in background.
    */
-  toBackground(completionHandler: (e: void) => void): void;
+  toBackground(completionHandler: (e: void) => void): void;              
 
-  /**
+/**
    * Set the process in foreground.
    */
-  toForeground(): void;
+  toForeground(): void;              
 
-  /**
+/**
    * Set the process in foreground.
    */
-  toForeground(completionHandler: (e: void) => void): void;
-}
-
-declare var Process: {
-}
+  toForeground(completionHandler: (e: void) => void): void;    }                                                  declare var Process: {}

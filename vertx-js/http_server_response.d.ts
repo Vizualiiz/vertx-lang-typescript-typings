@@ -1,11 +1,4 @@
-/// <reference path="./globals.d.ts" />
-/// <reference path="./buffer" />
-/// <reference path="./write_stream" />
-/// <reference path="./multi_map" />
-
-declare module "vertx-js/http_server_response" {
-  export = HttpServerResponse;
-}
+/// <reference path="./globals.d.ts" />/// <reference path="./buffer" />/// <reference path="./http_frame" />/// <reference path="./write_stream" />/// <reference path="./multi_map" />declare module "vertx-js/http_server_response" {  export = HttpServerResponse;}
 
 /**
  * Represents a server-side HTTP response.
@@ -28,204 +21,248 @@ declare module "vertx-js/http_server_response" {
  * Pump to pump data with flow control.
  */
 
-declare interface HttpServerResponse
-  extends
-    WriteStream
-{
+declare interface HttpServerResponse  extends      WriteStream  {            
 
-  /**
+/**
    * This will return <code>true</code> if there are more bytes in the write queue than the value set using setWriteQueueMaxSize
    */
-  writeQueueFull(): boolean;
-  exceptionHandler(handler: (e: Throwable) => void): HttpServerResponse;
-  write(data: Buffer): HttpServerResponse;
-  setWriteQueueMaxSize(maxSize: number): HttpServerResponse;
-  drainHandler(handler: (e: void) => void): HttpServerResponse;
+  writeQueueFull(): boolean;              exceptionHandler(handler: (e: Throwable) => void): HttpServerResponse;              write(data: Buffer): HttpServerResponse;              setWriteQueueMaxSize(maxSize: number): HttpServerResponse;              drainHandler(handler: (e: void) => void): HttpServerResponse;              
 
-  /**
+/**
    * @return the HTTP status code of the response. The default is <code>200</code> representing <code>OK</code>.
    */
-  getStatusCode(): number;
+  getStatusCode(): number;              
 
-  /**
+/**
    * Set the status code. If the status message hasn't been explicitly set, a default status message corresponding
-   * to the code will be looked-up and used.
+ * to the code will be looked-up and used.
    */
-  setStatusCode(statusCode: number): HttpServerResponse;
+  setStatusCode(statusCode: number): HttpServerResponse;              
 
-  /**
+/**
    * @return the HTTP status message of the response. If this is not specified a default value will be used depending on what
-   * setStatusCode has been set to.
+ * setStatusCode has been set to.
    */
-  getStatusMessage(): string;
+  getStatusMessage(): string;              
 
-  /**
+/**
    * Set the status message
    */
-  setStatusMessage(statusMessage: string): HttpServerResponse;
+  setStatusMessage(statusMessage: string): HttpServerResponse;              
 
-  /**
+/**
    * If <code>chunked</code> is <code>true</code>, this response will use HTTP chunked encoding, and each call to write to the body
-   * will correspond to a new HTTP chunk sent on the wire.
-   * <p>
-   * If chunked encoding is used the HTTP header <code>Transfer-Encoding</code> with a value of <code>Chunked</code> will be
-   * automatically inserted in the response.
-   * <p>
-   * If <code>chunked</code> is <code>false</code>, this response will not use HTTP chunked encoding, and therefore the total size
-   * of any data that is written in the respone body must be set in the <code>Content-Length</code> header <b>before</b> any
-   * data is written out.
-   * <p>
-   * An HTTP chunked response is typically used when you do not know the total size of the request body up front.
+ * will correspond to a new HTTP chunk sent on the wire.
+ * <p>
+ * If chunked encoding is used the HTTP header <code>Transfer-Encoding</code> with a value of <code>Chunked</code> will be
+ * automatically inserted in the response.
+ * <p>
+ * If <code>chunked</code> is <code>false</code>, this response will not use HTTP chunked encoding, and therefore the total size
+ * of any data that is written in the respone body must be set in the <code>Content-Length</code> header <b>before</b> any
+ * data is written out.
+ * <p>
+ * An HTTP chunked response is typically used when you do not know the total size of the request body up front.
    */
-  setChunked(chunked: boolean): HttpServerResponse;
+  setChunked(chunked: boolean): HttpServerResponse;              
 
-  /**
+/**
    * @return is the response chunked?
    */
-  isChunked(): boolean;
+  isChunked(): boolean;              
 
-  /**
+/**
    * @return The HTTP headers
    */
-  headers(): MultiMap;
+  headers(): MultiMap;              
 
-  /**
+/**
    * Put an HTTP header
    */
-  putHeader(name: string, value: string): HttpServerResponse;
+  putHeader(name: string, value: string): HttpServerResponse;              
 
-  /**
+/**
    * @return The HTTP trailers
    */
-  trailers(): MultiMap;
+  trailers(): MultiMap;              
 
-  /**
+/**
    * Put an HTTP trailer
    */
-  putTrailer(name: string, value: string): HttpServerResponse;
+  putTrailer(name: string, value: string): HttpServerResponse;              
 
-  /**
+/**
    * Set a close handler for the response. This will be called if the underlying connection closes before the response
-   * is complete.
+ * is complete.
    */
-  closeHandler(handler: (e: void) => void): HttpServerResponse;
+  closeHandler(handler: (e: void) => void): HttpServerResponse;              
 
-  /**
+/**
    * Write a String to the response body, encoded using the encoding <code>enc</code>.
    */
-  write(chunk: string, enc: string): HttpServerResponse;
+  write(chunk: string, enc: string): HttpServerResponse;              
 
-  /**
+/**
    * Write a String to the response body, encoded in UTF-8.
    */
-  write(chunk: string): HttpServerResponse;
+  write(chunk: string): HttpServerResponse;              
 
-  /**
+/**
    * Used to write an interim 100 Continue response to signify that the client should send the rest of the request.
-   * Must only be used if the request contains an "Expect:100-Continue" header
+ * Must only be used if the request contains an "Expect:100-Continue" header
    */
-  writeContinue(): HttpServerResponse;
+  writeContinue(): HttpServerResponse;              
 
-  /**
+/**
    * Same as end but writes a String in UTF-8 encoding before ending the response.
    */
-  end(chunk: string): void;
+  end(chunk: string): void;              
 
-  /**
+/**
    * Same as end but writes a String with the specified encoding before ending the response.
    */
-  end(chunk: string, enc: string): void;
+  end(chunk: string, enc: string): void;              
 
-  /**
+/**
    * Same as end but writes some data to the response body before ending. If the response is not chunked and
-   * no other data has been written then the @code{Content-Length} header will be automatically set.
+ * no other data has been written then the @code{Content-Length} header will be automatically set.
    */
-  end(chunk: Buffer): void;
+  end(chunk: Buffer): void;              
 
-  /**
+/**
    * Ends the response. If no data has been written to the response body,
-   * the actual response won't get written until this method gets called.
-   * <p>
-   * Once the response has ended, it cannot be used any more.
+ * the actual response won't get written until this method gets called.
+ * <p>
+ * Once the response has ended, it cannot be used any more.
    */
-  end(): void;
+  end(): void;              
 
-  /**
+/**
    * Same as sendFile using offset @code{0} which means starting from the beginning of the file.
    */
-  sendFile(filename: string): HttpServerResponse;
+  sendFile(filename: string): HttpServerResponse;              
 
-  /**
+/**
    * Same as sendFile using length @code{Long.MAX_VALUE} which means until the end of the
-   * file.
+ * file.
    */
-  sendFile(filename: string, offset: number): HttpServerResponse;
+  sendFile(filename: string, offset: number): HttpServerResponse;              
 
-  /**
+/**
    * Ask the OS to stream a file as specified by <code>filename</code> directly
-   * from disk to the outgoing connection, bypassing userspace altogether
-   * (where supported by the underlying operating system.
-   * This is a very efficient way to serve files.<p>
-   * The actual serve is asynchronous and may not complete until some time after this method has returned.
+ * from disk to the outgoing connection, bypassing userspace altogether
+ * (where supported by the underlying operating system.
+ * This is a very efficient way to serve files.<p>
+ * The actual serve is asynchronous and may not complete until some time after this method has returned.
    */
-  sendFile(filename: string, offset: number, length: number): HttpServerResponse;
+  sendFile(filename: string, offset: number, length: number): HttpServerResponse;              
 
-  /**
+/**
    * Like sendFile but providing a handler which will be notified once the file has been completely
-   * written to the wire.
+ * written to the wire.
    */
-  sendFile(filename: string, resultHandler: (res: void, err?: Throwable) => void): HttpServerResponse;
+  sendFile(filename: string, resultHandler: (res: void, err?: Throwable) => void): HttpServerResponse;              
 
-  /**
+/**
    * Like sendFile but providing a handler which will be notified once the file has been completely
-   * written to the wire.
+ * written to the wire.
    */
-  sendFile(filename: string, offset: number, resultHandler: (res: void, err?: Throwable) => void): HttpServerResponse;
+  sendFile(filename: string, offset: number, resultHandler: (res: void, err?: Throwable) => void): HttpServerResponse;              
 
-  /**
+/**
    * Like sendFile but providing a handler which will be notified once the file has been
-   * completely written to the wire.
+ * completely written to the wire.
    */
-  sendFile(filename: string, offset: number, length: number, resultHandler: (res: void, err?: Throwable) => void): HttpServerResponse;
+  sendFile(filename: string, offset: number, length: number, resultHandler: (res: void, err?: Throwable) => void): HttpServerResponse;              
 
-  /**
+/**
    * Close the underlying TCP connection corresponding to the request.
    */
-  close(): void;
+  close(): void;              
 
-  /**
+/**
    * @return has the response already ended?
    */
-  ended(): boolean;
+  ended(): boolean;              
 
-  /**
+/**
    * @return has the underlying TCP connection corresponding to the request already been closed?
    */
-  closed(): boolean;
+  closed(): boolean;              
 
-  /**
+/**
    * @return have the headers for the response already been written?
    */
-  headWritten(): boolean;
+  headWritten(): boolean;              
 
-  /**
+/**
    * Provide a handler that will be called just before the headers are written to the wire.<p>
-   * This provides a hook allowing you to add any more headers or do any more operations before this occurs.
+ * This provides a hook allowing you to add any more headers or do any more operations before this occurs.
    */
-  headersEndHandler(handler: (e: void) => void): HttpServerResponse;
+  headersEndHandler(handler: (e: void) => void): HttpServerResponse;              
 
-  /**
+/**
    * Provide a handler that will be called just before the last part of the body is written to the wire
-   * and the response is ended.<p>
-   * This provides a hook allowing you to do any more operations before this occurs.
+ * and the response is ended.<p>
+ * This provides a hook allowing you to do any more operations before this occurs.
    */
-  bodyEndHandler(handler: (e: void) => void): HttpServerResponse;
+  bodyEndHandler(handler: (e: void) => void): HttpServerResponse;              
 
-  /**
+/**
    * @return the total number of bytes written for the body of the response.
    */
-  bytesWritten(): number;
-}
+  bytesWritten(): number;              
 
-declare var HttpServerResponse: {
-}
+/**
+   * @return the id of the stream of this response,  for HTTP/1.x
+   */
+  streamId(): number;              
+
+/**
+   * Like push with no headers.
+   */
+  push(method: any, host: string, path: string, handler: (res: HttpServerResponse, err?: Throwable) => void): HttpServerResponse;              
+
+/**
+   * Like push with the host copied from the current request.
+   */
+  push(method: any, path: string, headers: MultiMap, handler: (res: HttpServerResponse, err?: Throwable) => void): HttpServerResponse;              
+
+/**
+   * Like push with the host copied from the current request.
+   */
+  push(method: any, path: string, handler: (res: HttpServerResponse, err?: Throwable) => void): HttpServerResponse;              
+
+/**
+   * Push a response to the client.<p/>
+ *
+ * The <code>handler</code> will be notified with a <i>success</i> when the push can be sent and with
+ * a <i>failure</i> when the client has disabled push or reset the push before it has been sent.<p/>
+ *
+ * The <code>handler</code> may be queued if the client has reduced the maximum number of streams the server can push
+ * concurrently.<p/>
+ *
+ * Push can be sent only for peer initiated streams and if the response is not ended.
+   */
+  push(method: any, host: string, path: string, headers: MultiMap, handler: (res: HttpServerResponse, err?: Throwable) => void): HttpServerResponse;              
+
+/**
+   * Reset this HTTP/2 stream with the error code <code>0</code>.
+   */
+  reset(): void;              
+
+/**
+   * Reset this HTTP/2 stream with the error <code>code</code>.
+   */
+  reset(code: number): void;              
+
+/**
+   * Write an HTTP/2 frame to the response, allowing to extend the HTTP/2 protocol.<p>
+ *
+ * The frame is sent immediatly and is not subject to flow control.
+   */
+  writeCustomFrame(type: number, flags: number, payload: Buffer): HttpServerResponse;              
+
+/**
+   * Like writeCustomFrame but with an HttpFrame.
+   */
+  writeCustomFrame(frame: HttpFrame): HttpServerResponse;    }                                                                                          declare var HttpServerResponse: {}

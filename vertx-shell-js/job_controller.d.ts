@@ -1,48 +1,37 @@
-/// <reference path="../vertx-js/globals.d.ts" />
-/// <reference path="./job" />
-/// <reference path="./process" />
-
-declare module "vertx-shell-js/job_controller" {
-  export = JobController;
-}
+/// <reference path="../vertx-js/globals.d.ts" />/// <reference path="./job" />/// <reference path="./process" />declare module "vertx-shell-js/job_controller" {  export = JobController;}
 
 /**
  * The job controller.<p/>
  */
 
-declare interface JobController
-{
+declare interface JobController{            
 
-  /**
+/**
    * @return the current foreground job
    */
-  foregroundJob(): Job;
+  foregroundJob(): Job;              
 
-  /**
+/**
    * @return the active jobs
    */
-  jobs(): Array<Job>;
+  jobs(): Array<Job>;              
 
-  /**
+/**
    * Returns an active job in this session by its .
    */
-  getJob(id: number): Job;
+  getJob(id: number): Job;              
 
-  /**
+/**
    * Create a job wrapping a process.
    */
-  createJob(process: Process, line: string): Job;
+  createJob(process: Process, line: string): Job;              
 
-  /**
+/**
    * Close the controller and terminate all the underlying jobs, a closed controller does not accept anymore jobs.
    */
-  close(completionHandler: (e: void) => void): void;
+  close(completionHandler: (e: void) => void): void;              
 
-  /**
+/**
    * Close the shell session and terminate all the underlying jobs.
    */
-  close(): void;
-}
-
-declare var JobController: {
-}
+  close(): void;    }            declare var JobController: {}

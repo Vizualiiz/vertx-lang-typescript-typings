@@ -1,9 +1,4 @@
-/// <reference path="./globals.d.ts" />
-/// <reference path="./read_stream" />
-
-declare module "vertx-js/timeout_stream" {
-  export = TimeoutStream;
-}
+/// <reference path="./globals.d.ts" />/// <reference path="./read_stream" />declare module "vertx-js/timeout_stream" {  export = TimeoutStream;}
 
 /**
  * A timeout stream is triggered by a timer, the Handler will be call when the timer is fired,
@@ -14,22 +9,10 @@ declare module "vertx-js/timeout_stream" {
  * the timer.
  */
 
-declare interface TimeoutStream
-  extends
-    ReadStream
-{
-  exceptionHandler(handler: (e: Throwable) => void): TimeoutStream;
-  handler(handler: (e: number) => void): TimeoutStream;
-  pause(): TimeoutStream;
-  resume(): TimeoutStream;
-  endHandler(endHandler: (e: void) => void): TimeoutStream;
+declare interface TimeoutStream  extends      ReadStream  {            exceptionHandler(handler: (e: Throwable) => void): TimeoutStream;              handler(handler: (e: number) => void): TimeoutStream;              pause(): TimeoutStream;              resume(): TimeoutStream;              endHandler(endHandler: (e: void) => void): TimeoutStream;              
 
-  /**
+/**
    * Cancels the timeout. Note this has the same effect as calling handler with a null
-   * argument.
+ * argument.
    */
-  cancel(): void;
-}
-
-declare var TimeoutStream: {
-}
+  cancel(): void;    }            declare var TimeoutStream: {}

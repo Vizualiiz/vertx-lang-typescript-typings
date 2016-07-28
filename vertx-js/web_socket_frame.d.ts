@@ -1,9 +1,4 @@
-/// <reference path="./globals.d.ts" />
-/// <reference path="./buffer" />
-
-declare module "vertx-js/web_socket_frame" {
-  export = WebSocketFrame;
-}
+/// <reference path="./globals.d.ts" />/// <reference path="./buffer" />declare module "vertx-js/web_socket_frame" {  export = WebSocketFrame;}
 
 /**
  * A WebSocket frame that represents either text or binary data.
@@ -16,55 +11,50 @@ declare module "vertx-js/web_socket_frame" {
  * final = false, followed by one or more continuation frames. The last continuation frame should have final = true.
  */
 
-declare interface WebSocketFrame
-{
+declare interface WebSocketFrame{                                    
 
-  /**
+/**
    * @return true if it's a text frame
    */
-  isText(): boolean;
+  isText(): boolean;              
 
-  /**
+/**
    * @return true if it's a binary frame
    */
-  isBinary(): boolean;
+  isBinary(): boolean;              
 
-  /**
+/**
    * @return true if it's a continuation frame
    */
-  isContinuation(): boolean;
+  isContinuation(): boolean;              
 
-  /**
+/**
    * @return the content of this frame as a UTF-8 string and returns the
-   * converted string. Only use this for text frames.
+ * converted string. Only use this for text frames.
    */
-  textData(): string;
+  textData(): string;              
 
-  /**
+/**
    * @return the data of the frame
    */
-  binaryData(): Buffer;
+  binaryData(): Buffer;              
 
-  /**
+/**
    * @return true if this is the final frame.
    */
-  isFinal(): boolean;
-}
+  isFinal(): boolean;    }                  declare var WebSocketFrame: {        
 
-declare var WebSocketFrame: {
-
-  /**
+/**
    * Create a binary WebSocket frame.
    */
-  binaryFrame(data: Buffer, isFinal: boolean): WebSocketFrame;
+  binaryFrame(data: Buffer, isFinal: boolean): WebSocketFrame;          
 
-  /**
+/**
    * Create a text WebSocket frame.
    */
-  textFrame(str: string, isFinal: boolean): WebSocketFrame;
+  textFrame(str: string, isFinal: boolean): WebSocketFrame;          
 
-  /**
+/**
    * Create a continuation frame
    */
-  continuationFrame(data: Buffer, isFinal: boolean): WebSocketFrame;
-}
+  continuationFrame(data: Buffer, isFinal: boolean): WebSocketFrame;                          }

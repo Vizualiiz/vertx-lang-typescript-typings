@@ -1,13 +1,4 @@
-/// <reference path="../vertx-js/globals.d.ts" />
-/// <reference path="./sock_js_socket" />
-/// <reference path="../vertx-js/vertx" />
-/// <reference path="./router" />
-/// <reference path="./routing_context" />
-/// <reference path="./bridge_event" />
-
-declare module "vertx-web-js/sock_js_handler" {
-  export = SockJSHandler;
-}
+/// <reference path="../vertx-js/globals.d.ts" />/// <reference path="./sock_js_socket" />/// <reference path="../vertx-js/vertx" />/// <reference path="./router" />/// <reference path="./routing_context" />/// <reference path="./bridge_event" />declare module "vertx-web-js/sock_js_handler" {  export = SockJSHandler;}
 
 /**
  *
@@ -17,48 +8,43 @@ declare module "vertx-web-js/sock_js_handler" {
  * <a href="https://github.com/sockjs/sockjs-protocol/tree/v0.3.3">this tag:</a>
  */
 
-declare interface SockJSHandler
-{
+declare interface SockJSHandler{            
 
-  /**
+/**
    * Something has happened, so handle it.
    */
-  handle(event: RoutingContext): void;
+  handle(event: RoutingContext): void;                                      
 
-  /**
+/**
    * Set a SockJS socket handler. This handler will be called with a SockJS socket whenever a SockJS connection
-   * is made from a client
+ * is made from a client
    */
-  socketHandler(handler: (e: SockJSSocket) => void): SockJSHandler;
+  socketHandler(handler: (e: SockJSSocket) => void): SockJSHandler;              
 
-  /**
+/**
    * Bridge the SockJS handler to the Vert.x event bus. This basically installs a built-in SockJS socket handler
-   * which takes SockJS traffic and bridges it to the event bus, thus allowing you to extend the server-side
-   * Vert.x event bus to browsers
+ * which takes SockJS traffic and bridges it to the event bus, thus allowing you to extend the server-side
+ * Vert.x event bus to browsers
    */
-  bridge(bridgeOptions: any): SockJSHandler;
+  bridge(bridgeOptions: any): SockJSHandler;              
 
-  /**
+/**
    * Like bridge but specifying a handler
-   * that will receive bridge events.
+ * that will receive bridge events.
    */
-  bridge(bridgeOptions: any, bridgeEventHandler: (e: BridgeEvent) => void): SockJSHandler;
-}
+  bridge(bridgeOptions: any, bridgeEventHandler: (e: BridgeEvent) => void): SockJSHandler;    }              declare var SockJSHandler: {            
 
-declare var SockJSHandler: {
-
-  /**
+/**
    * Create a SockJS handler
    */
-  create(vertx: Vertx): SockJSHandler;
+  create(vertx: Vertx): SockJSHandler;          
 
-  /**
+/**
    * Create a SockJS handler
    */
-  create(vertx: Vertx, options: any): SockJSHandler;
+  create(vertx: Vertx, options: any): SockJSHandler;          
 
-  /**
+/**
    * Install SockJS test applications on a router - used when running the SockJS test suite
    */
-  installTestApplications(router: Router, vertx: Vertx): void;
-}
+  installTestApplications(router: Router, vertx: Vertx): void;              }

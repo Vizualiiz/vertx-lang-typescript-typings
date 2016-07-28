@@ -1,10 +1,4 @@
-/// <reference path="./globals.d.ts" />
-/// <reference path="./read_stream" />
-/// <reference path="./web_socket" />
-
-declare module "vertx-js/web_socket_stream" {
-  export = WebSocketStream;
-}
+/// <reference path="./globals.d.ts" />/// <reference path="./read_stream" />/// <reference path="./web_socket" />declare module "vertx-js/web_socket_stream" {  export = WebSocketStream;}
 
 /**
  * A stream for HttpClient WebSocket connection.
@@ -16,16 +10,4 @@ declare module "vertx-js/web_socket_stream" {
  * set before setting the handler.
  */
 
-declare interface WebSocketStream
-  extends
-    ReadStream
-{
-  exceptionHandler(handler: (e: Throwable) => void): WebSocketStream;
-  handler(handler: (e: WebSocket) => void): WebSocketStream;
-  pause(): WebSocketStream;
-  resume(): WebSocketStream;
-  endHandler(endHandler: (e: void) => void): WebSocketStream;
-}
-
-declare var WebSocketStream: {
-}
+declare interface WebSocketStream  extends      ReadStream  {            exceptionHandler(handler: (e: Throwable) => void): WebSocketStream;              handler(handler: (e: WebSocket) => void): WebSocketStream;              pause(): WebSocketStream;              resume(): WebSocketStream;              endHandler(endHandler: (e: void) => void): WebSocketStream;    }          declare var WebSocketStream: {}

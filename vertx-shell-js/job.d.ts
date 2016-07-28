@@ -1,11 +1,4 @@
-/// <reference path="../vertx-js/globals.d.ts" />
-/// <reference path="./process" />
-/// <reference path="./tty" />
-/// <reference path="./session" />
-
-declare module "vertx-shell-js/job" {
-  export = Job;
-}
+/// <reference path="../vertx-js/globals.d.ts" />/// <reference path="./process" />/// <reference path="./tty" />/// <reference path="./session" />declare module "vertx-shell-js/job" {  export = Job;}
 
 /**
  * A job executed in a JobController, grouping one or several process.<p/>
@@ -14,89 +7,84 @@ declare module "vertx-shell-js/job" {
  * methods.
  */
 
-declare interface Job
-{
+declare interface Job{            
 
-  /**
+/**
    * @return the job id
    */
-  id(): number;
+  id(): number;              
 
-  /**
+/**
    * @return the job exec status
    */
-  status(): any;
+  status(): any;              
 
-  /**
+/**
    * @return when the job was last stopped
    */
-  lastStopped(): number;
+  lastStopped(): number;              
 
-  /**
+/**
    * @return the execution line of the job, i.e the shell command line that launched this job
    */
-  line(): string;
+  line(): string;              
 
-  /**
+/**
    * Set a tty on the job.
    */
-  setTty(tty: Tty): Job;
+  setTty(tty: Tty): Job;              
 
-  /**
+/**
    * Set a session on the job.
    */
-  setSession(session: ShellSession): Job;
+  setSession(session: ShellSession): Job;              
 
-  /**
+/**
    * Set an handler called when the job terminates.
    */
-  statusUpdateHandler(handler: (e: any) => void): Job;
+  statusUpdateHandler(handler: (e: any) => void): Job;              
 
-  /**
+/**
    * Run the job, before running the job a  must be set.
    */
-  run(): Job;
+  run(): Job;              
 
-  /**
+/**
    * Attempt to interrupt the job.
    */
-  interrupt(): boolean;
+  interrupt(): boolean;              
 
-  /**
+/**
    * Resume the job to foreground.
    */
-  resume(): Job;
+  resume(): Job;              
 
-  /**
+/**
    * Send the job to background.
    */
-  toBackground(): Job;
+  toBackground(): Job;              
 
-  /**
+/**
    * Send the job to foreground.
    */
-  toForeground(): Job;
+  toForeground(): Job;              
 
-  /**
+/**
    * Resume the job.
    */
-  resume(foreground: boolean): Job;
+  resume(foreground: boolean): Job;              
 
-  /**
+/**
    * Resume the job.
    */
-  suspend(): Job;
+  suspend(): Job;              
 
-  /**
+/**
    * Terminate the job.
    */
-  terminate(): void;
+  terminate(): void;              
 
-  /**
+/**
    * @return the first process in the job
    */
-  process(): Process;
-}
-
-declare var Job: {
-}
+  process(): Process;    }                                declare var Job: {}

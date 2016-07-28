@@ -1,10 +1,4 @@
-/// <reference path="../vertx-js/globals.d.ts" />
-/// <reference path="./template_engine" />
-/// <reference path="./routing_context" />
-
-declare module "vertx-web-js/template_handler" {
-  export = TemplateHandler;
-}
+/// <reference path="../vertx-js/globals.d.ts" />/// <reference path="./template_engine" />/// <reference path="./routing_context" />declare module "vertx-web-js/template_handler" {  export = TemplateHandler;}
 
 /**
  *
@@ -12,24 +6,19 @@ declare module "vertx-web-js/template_handler" {
  * path.
  */
 
-declare interface TemplateHandler
-{
+declare interface TemplateHandler{            
 
-  /**
+/**
    * Something has happened, so handle it.
    */
-  handle(event: RoutingContext): void;
-}
+  handle(event: RoutingContext): void;                    }      declare var TemplateHandler: {            
 
-declare var TemplateHandler: {
-
-  /**
+/**
    * Create a handler
    */
-  create(engine: TemplateEngine): TemplateHandler;
+  create(engine: TemplateEngine): TemplateHandler;          
 
-  /**
+/**
    * Create a handler
    */
-  create(engine: TemplateEngine, templateDirectory: string, contentType: string): TemplateHandler;
-}
+  create(engine: TemplateEngine, templateDirectory: string, contentType: string): TemplateHandler;  }

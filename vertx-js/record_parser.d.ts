@@ -1,9 +1,4 @@
-/// <reference path="./globals.d.ts" />
-/// <reference path="./buffer" />
-
-declare module "vertx-js/record_parser" {
-  export = RecordParser;
-}
+/// <reference path="./globals.d.ts" />/// <reference path="./buffer" />declare module "vertx-js/record_parser" {  export = RecordParser;}
 
 /**
  * A helper class which allows you to easily parse protocols which are delimited by a sequence of bytes, or fixed
@@ -37,62 +32,56 @@ declare module "vertx-js/record_parser" {
  * Please see the documentation for more information.
  */
 
-declare interface RecordParser
-{
-  setOutput(output: (e: Buffer) => void): void;
+declare interface RecordParser{            setOutput(output: (e: Buffer) => void): void;                                      
 
-  /**
+/**
    * Flip the parser into delimited mode, and where the delimiter can be represented
-   * by the String <code>delim</code> encoded in latin-1 . Don't use this if your String contains other than latin-1 characters.
-   * <p>
-   * This method can be called multiple times with different values of delim while data is being parsed.
+ * by the String <code>delim</code> encoded in latin-1 . Don't use this if your String contains other than latin-1 characters.
+ * <p>
+ * This method can be called multiple times with different values of delim while data is being parsed.
    */
-  delimitedMode(delim: string): void;
+  delimitedMode(delim: string): void;              
 
-  /**
+/**
    * Flip the parser into delimited mode, and where the delimiter can be represented
-   * by the delimiter <code>delim</code>.
-   * <p>
-   * This method can be called multiple times with different values of delim while data is being parsed.
+ * by the delimiter <code>delim</code>.
+ * <p>
+ * This method can be called multiple times with different values of delim while data is being parsed.
    */
-  delimitedMode(delim: Buffer): void;
+  delimitedMode(delim: Buffer): void;              
 
-  /**
+/**
    * Flip the parser into fixed size mode, where the record size is specified by <code>size</code> in bytes.
-   * <p>
-   * This method can be called multiple times with different values of size while data is being parsed.
+ * <p>
+ * This method can be called multiple times with different values of size while data is being parsed.
    */
-  fixedSizeMode(size: number): void;
+  fixedSizeMode(size: number): void;              
 
-  /**
+/**
    * This method is called to provide the parser with data.
    */
-  handle(buffer: Buffer): void;
-}
+  handle(buffer: Buffer): void;    }                declare var RecordParser: {            
 
-declare var RecordParser: {
-
-  /**
+/**
    * Create a new <code>RecordParser</code> instance, initially in delimited mode, and where the delimiter can be represented
-   * by the String <code></code> delim endcoded in latin-1 . Don't use this if your String contains other than latin-1 characters.
-   * <p>
-   * <code>output</code> Will receive whole records which have been parsed.
+ * by the String <code></code> delim endcoded in latin-1 . Don't use this if your String contains other than latin-1 characters.
+ * <p>
+ * <code>output</code> Will receive whole records which have been parsed.
    */
-  newDelimited(delim: string, output: (e: Buffer) => void): RecordParser;
+  newDelimited(delim: string, output: (e: Buffer) => void): RecordParser;          
 
-  /**
+/**
    * Create a new <code>RecordParser</code> instance, initially in delimited mode, and where the delimiter can be represented
-   * by the <code>Buffer</code> delim.
-   * <p>
-   * <code>output</code> Will receive whole records which have been parsed.
+ * by the <code>Buffer</code> delim.
+ * <p>
+ * <code>output</code> Will receive whole records which have been parsed.
    */
-  newDelimited(delim: Buffer, output: (e: Buffer) => void): RecordParser;
+  newDelimited(delim: Buffer, output: (e: Buffer) => void): RecordParser;          
 
-  /**
+/**
    * Create a new <code>RecordParser</code> instance, initially in fixed size mode, and where the record size is specified
-   * by the <code>size</code> parameter.
-   * <p>
-   * <code>output</code> Will receive whole records which have been parsed.
+ * by the <code>size</code> parameter.
+ * <p>
+ * <code>output</code> Will receive whole records which have been parsed.
    */
-  newFixed(size: number, output: (e: Buffer) => void): RecordParser;
-}
+  newFixed(size: number, output: (e: Buffer) => void): RecordParser;                  }

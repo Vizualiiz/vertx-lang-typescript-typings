@@ -1,48 +1,38 @@
-/// <reference path="../vertx-js/globals.d.ts" />
-/// <reference path="./tty" />
-
-declare module "vertx-shell-js/pty" {
-  export = Pty;
-}
+/// <reference path="../vertx-js/globals.d.ts" />/// <reference path="./tty" />declare module "vertx-shell-js/pty" {  export = Pty;}
 
 /**
  * A pseudo terminal used for controlling a Tty. This interface acts as a pseudo
  * terminal master, slave returns the assocated slave pseudo terminal.
  */
 
-declare interface Pty
-{
+declare interface Pty{                            
 
-  /**
+/**
    * Set the standard out handler of the pseudo terminal.
    */
-  stdoutHandler(handler: (e: string) => void): Pty;
+  stdoutHandler(handler: (e: string) => void): Pty;              
 
-  /**
+/**
    * Write data to the slave standard input of the pseudo terminal.
    */
-  write(data: string): Pty;
+  write(data: string): Pty;              
 
-  /**
+/**
    * Resize the terminal.
    */
-  setSize(width: number, height: number): Pty;
+  setSize(width: number, height: number): Pty;              
 
-  /**
+/**
    * @return the pseudo terminal slave
    */
-  slave(): Tty;
-}
+  slave(): Tty;    }            declare var Pty: {        
 
-declare var Pty: {
-
-  /**
+/**
    * Create a new pseudo terminal with no terminal type.
    */
-  create(): Pty;
+  create(): Pty;          
 
-  /**
+/**
    * Create a new pseudo terminal.
    */
-  create(terminalType: string): Pty;
-}
+  create(terminalType: string): Pty;                  }

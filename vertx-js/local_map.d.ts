@@ -1,8 +1,4 @@
-/// <reference path="./globals.d.ts" />
-
-declare module "vertx-js/local_map" {
-  export = LocalMap;
-}
+/// <reference path="./globals.d.ts" />declare module "vertx-js/local_map" {  export = LocalMap;}
 
 /**
  * Local maps can be used to share data safely in a single Vert.x instance.
@@ -14,64 +10,59 @@ declare module "vertx-js/local_map" {
  * Vert.x instance, and means you don't have to protect access to that state using synchronization or locks.
  */
 
-declare interface LocalMap
-{
+declare interface LocalMap{            
 
-  /**
+/**
    * Get a value from the map
    */
-  get(key: any): any;
+  get(key: any): any;              
 
-  /**
+/**
    * Put an entry in the map
    */
-  put(key: any, value: any): any;
+  put(key: any, value: any): any;              
 
-  /**
+/**
    * Remove an entry from the map
    */
-  remove(key: any): any;
+  remove(key: any): any;              
 
-  /**
+/**
    * Clear all entries in the map
    */
-  clear(): void;
+  clear(): void;              
 
-  /**
+/**
    * Get the size of the map
    */
-  size(): number;
+  size(): number;              
 
-  /**
+/**
    * @return true if there are zero entries in the map
    */
-  isEmpty(): boolean;
+  isEmpty(): boolean;              
 
-  /**
+/**
    * Put the entry only if there is no existing entry for that key
    */
-  putIfAbsent(key: any, value: any): any;
+  putIfAbsent(key: any, value: any): any;              
 
-  /**
+/**
    * Remove the entry only if there is an entry with the specified key and value
    */
-  removeIfPresent(key: any, value: any): boolean;
+  removeIfPresent(key: any, value: any): boolean;              
 
-  /**
+/**
    * Replace the entry only if there is an existing entry with the specified key and value
    */
-  replaceIfPresent(key: any, oldValue: any, newValue: any): boolean;
+  replaceIfPresent(key: any, oldValue: any, newValue: any): boolean;              
 
-  /**
+/**
    * Replace the entry only if there is an existing entry with the key
    */
-  replace(key: any, value: any): any;
+  replace(key: any, value: any): any;              
 
-  /**
+/**
    * Close and release the map
    */
-  close(): void;
-}
-
-declare var LocalMap: {
-}
+  close(): void;    }                      declare var LocalMap: {}
