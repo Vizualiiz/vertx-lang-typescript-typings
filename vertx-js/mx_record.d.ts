@@ -1,17 +1,26 @@
-/// <reference path="./globals.d.ts" />declare module "vertx-js/mx_record" {  export = MxRecord;}
+/// <reference path="./globals.d.ts" />
+
+declare module "vertx-js/mx_record" {
+  export = MxRecord;
+}
 
 /**
  * Represent a Mail-Exchange-Record (MX) which was resolved for a domain.
  */
+declare interface MxRecord {
 
-declare interface MxRecord{            
-
-/**
+  /**
    * The priority of the MX record.
    */
-  priority(): number;              
+  priority(): number;
 
-/**
+  /**
    * The name of the MX record
    */
-  name(): string;    }    declare var MxRecord: {}
+  name(): string;
+
+}
+
+declare var MxRecord: {
+
+}

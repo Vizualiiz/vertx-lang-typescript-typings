@@ -1,42 +1,51 @@
-/// <reference path="../vertx-js/globals.d.ts" />declare module "vertx-shell-js/cli_token" {  export = CliToken;}
+/// <reference path="../vertx-js/globals.d.ts" />
+
+declare module "vertx-shell-js/cli_token" {
+  export = CliToken;
+}
 
 /**
  * A parsed token in the command line interface.
  */
+declare interface CliToken {
 
-declare interface CliToken{                            
-
-/**
+  /**
    * @return the token value
    */
-  value(): string;              
+  value(): string;
 
-/**
+  /**
    * @return the raw token value, that may contain unescaped chars, for instance 
    */
-  raw(): string;              
+  raw(): string;
 
-/**
+  /**
    * @return true when it's a text token
    */
-  isText(): boolean;              
+  isText(): boolean;
 
-/**
+  /**
    * @return true when it's a blank token
    */
-  isBlank(): boolean;            }              declare var CliToken: {        
+  isBlank(): boolean;
 
-/**
+}
+
+declare var CliToken: {
+
+  /**
    * Create a text token.
    */
-  createText(text: string): CliToken;          
+  createText(text: string): CliToken;
 
-/**
+  /**
    * Create a new blank token.
    */
-  createBlank(blank: string): CliToken;                          
+  createBlank(blank: string): CliToken;
 
-/**
+  /**
    * Tokenize the string argument and return a list of tokens.
    */
-  tokenize(s: string): Array<CliToken>;  }
+  tokenize(s: string): Array<CliToken>;
+
+}

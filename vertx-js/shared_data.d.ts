@@ -1,4 +1,12 @@
-/// <reference path="./globals.d.ts" />/// <reference path="./async_map" />/// <reference path="./lock" />/// <reference path="./local_map" />/// <reference path="./counter" />declare module "vertx-js/shared_data" {  export = SharedData;}
+/// <reference path="./globals.d.ts" />
+/// <reference path="./async_map" />
+/// <reference path="./lock" />
+/// <reference path="./local_map" />
+/// <reference path="./counter" />
+
+declare module "vertx-js/shared_data" {
+  export = SharedData;
+}
 
 /**
  * Shared data allows you to share data safely between different parts of your application in a safe way.
@@ -13,32 +21,37 @@
  * <p>
  * Please see the documentation for more information.
  */
+declare interface SharedData {
 
-declare interface SharedData{            
-
-/**
+  /**
    * Get the cluster wide map with the specified name. The map is accessible to all nodes in the cluster and data
- * put into the map from any node is visible to to any other node.
+   * put into the map from any node is visible to to any other node.
    */
-  getClusterWideMap(name: string, resultHandler: (res: AsyncMap, err?: Throwable) => void): void;              
+  getClusterWideMap(name: string, resultHandler: (res: AsyncMap, err?: Throwable) => void): void;
 
-/**
+  /**
    * Get a cluster wide lock with the specified name. The lock will be passed to the handler when it is available.
    */
-  getLock(name: string, resultHandler: (res: Lock, err?: Throwable) => void): void;              
+  getLock(name: string, resultHandler: (res: Lock, err?: Throwable) => void): void;
 
-/**
+  /**
    * Like getLock but specifying a timeout. If the lock is not obtained within the timeout
- * a failure will be sent to the handler
+   * a failure will be sent to the handler
    */
-  getLockWithTimeout(name: string, timeout: number, resultHandler: (res: Lock, err?: Throwable) => void): void;              
+  getLockWithTimeout(name: string, timeout: number, resultHandler: (res: Lock, err?: Throwable) => void): void;
 
-/**
+  /**
    * Get a cluster wide counter. The counter will be passed to the handler.
    */
-  getCounter(name: string, resultHandler: (res: Counter, err?: Throwable) => void): void;              
+  getCounter(name: string, resultHandler: (res: Counter, err?: Throwable) => void): void;
 
-/**
+  /**
    * Return a <code>LocalMap</code> with the specific <code>name</code>.
    */
-  getLocalMap(name: string): LocalMap;    }          declare var SharedData: {}
+  getLocalMap(name: string): LocalMap;
+
+}
+
+declare var SharedData: {
+
+}

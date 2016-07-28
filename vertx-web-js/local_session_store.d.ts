@@ -1,24 +1,35 @@
-/// <reference path="../vertx-js/globals.d.ts" />/// <reference path="./session_store" />/// <reference path="../vertx-js/vertx" />declare module "vertx-web-js/local_session_store" {  export = LocalSessionStore;}
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="./session_store" />
+/// <reference path="../vertx-js/vertx" />
+
+declare module "vertx-web-js/local_session_store" {
+  export = LocalSessionStore;
+}
 
 /**
  * A session store which is only available on a single node.
  * <p>
  * Can be used when sticky sessions are being used.
  */
+declare interface LocalSessionStore extends SessionStore {
 
-declare interface LocalSessionStore  extends SessionStore{                          }      declare var LocalSessionStore: {        
+}
 
-/**
+declare var LocalSessionStore: {
+
+  /**
    * Create a session store
    */
-  create(vertx: Vertx): LocalSessionStore;          
+  create(vertx: Vertx): LocalSessionStore;
 
-/**
+  /**
    * Create a session store
    */
-  create(vertx: Vertx, sessionMapName: string): LocalSessionStore;          
+  create(vertx: Vertx, sessionMapName: string): LocalSessionStore;
 
-/**
+  /**
    * Create a session store
    */
-  create(vertx: Vertx, sessionMapName: string, reaperInterval: number): LocalSessionStore;  }
+  create(vertx: Vertx, sessionMapName: string, reaperInterval: number): LocalSessionStore;
+
+}

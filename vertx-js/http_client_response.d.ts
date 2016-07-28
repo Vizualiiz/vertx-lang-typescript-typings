@@ -1,4 +1,13 @@
-/// <reference path="./globals.d.ts" />/// <reference path="./buffer" />/// <reference path="./http_frame" />/// <reference path="./read_stream" />/// <reference path="./multi_map" />/// <reference path="./net_socket" />declare module "vertx-js/http_client_response" {  export = HttpClientResponse;}
+/// <reference path="./globals.d.ts" />
+/// <reference path="./buffer" />
+/// <reference path="./http_frame" />
+/// <reference path="./read_stream" />
+/// <reference path="./multi_map" />
+/// <reference path="./net_socket" />
+
+declare module "vertx-js/http_client_response" {
+  export = HttpClientResponse;
+}
 
 /**
  * Represents a client-side HTTP response.
@@ -9,69 +18,84 @@
  * It implements ReadStream so it can be used with
  * Pump to pump data with flow control.
  */
+declare interface HttpClientResponse extends ReadStream {
 
-declare interface HttpClientResponse  extends      ReadStream  {            resume(): HttpClientResponse;              exceptionHandler(handler: (e: Throwable) => void): HttpClientResponse;              handler(handler: (e: Buffer) => void): HttpClientResponse;              pause(): HttpClientResponse;              endHandler(endHandler: (e: void) => void): HttpClientResponse;              
+  resume(): HttpClientResponse;
 
-/**
+  exceptionHandler(handler: (e: Throwable) => void): HttpClientResponse;
+
+  handler(handler: (e: Buffer) => void): HttpClientResponse;
+
+  pause(): HttpClientResponse;
+
+  endHandler(endHandler: (e: void) => void): HttpClientResponse;
+
+  /**
    * @return the version of the response
    */
-  version(): any;              
+  version(): any;
 
-/**
+  /**
    * @return the status code of the response
    */
-  statusCode(): number;              
+  statusCode(): number;
 
-/**
+  /**
    * @return the status message of the response
    */
-  statusMessage(): string;              
+  statusMessage(): string;
 
-/**
+  /**
    * @return the headers
    */
-  headers(): MultiMap;              
+  headers(): MultiMap;
 
-/**
+  /**
    * Return the first header value with the specified name
    */
-  getHeader(headerName: string): string;              
+  getHeader(headerName: string): string;
 
-/**
+  /**
    * Return the first trailer value with the specified name
    */
-  getTrailer(trailerName: string): string;              
+  getTrailer(trailerName: string): string;
 
-/**
+  /**
    * @return the trailers
    */
-  trailers(): MultiMap;              
+  trailers(): MultiMap;
 
-/**
+  /**
    * @return the Set-Cookie headers (including trailers)
    */
-  cookies(): Array<string>;              
+  cookies(): Array<string>;
 
-/**
+  /**
    * Convenience method for receiving the entire request body in one piece.
- * <p>
- * This saves you having to manually set a dataHandler and an endHandler and append the chunks of the body until
- * the whole body received. Don't use this if your request body is large - you could potentially run out of RAM.
+   * <p>
+   * This saves you having to manually set a dataHandler and an endHandler and append the chunks of the body until
+   * the whole body received. Don't use this if your request body is large - you could potentially run out of RAM.
    */
-  bodyHandler(bodyHandler: (e: Buffer) => void): HttpClientResponse;              
+  bodyHandler(bodyHandler: (e: Buffer) => void): HttpClientResponse;
 
-/**
+  /**
    * Set an custom frame handler. The handler will get notified when the http stream receives an custom HTTP/2
- * frame. HTTP/2 permits extension of the protocol.
+   * frame. HTTP/2 permits extension of the protocol.
    */
-  customFrameHandler(handler: (e: HttpFrame) => void): HttpClientResponse;              
+  customFrameHandler(handler: (e: HttpFrame) => void): HttpClientResponse;
 
-/**
+  /**
    * Get a net socket for the underlying connection of this request.
- * <p>
- * USE THIS WITH CAUTION! Writing to the socket directly if you don't know what you're doing can easily break the HTTP protocol
- * <p>
- * One valid use-case for calling this is to receive the NetSocket after a HTTP CONNECT was issued to the
- * remote peer and it responded with a status code of 200.
+   * <p>
+   * USE THIS WITH CAUTION! Writing to the socket directly if you don't know what you're doing can easily break the HTTP protocol
+   * <p>
+   * One valid use-case for calling this is to receive the NetSocket after a HTTP CONNECT was issued to the
+   * remote peer and it responded with a status code of 200.
    */
-  netSocket(): NetSocket;    }                                declare var HttpClientResponse: {}
+  netSocket(): NetSocket;
+
+}
+
+declare var HttpClientResponse: {
+
+}

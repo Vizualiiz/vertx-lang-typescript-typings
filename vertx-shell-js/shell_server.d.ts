@@ -1,4 +1,13 @@
-/// <reference path="../vertx-js/globals.d.ts" />/// <reference path="./term_server" />/// <reference path="../vertx-js/vertx" />/// <reference path="./shell" />/// <reference path="./command_resolver" />/// <reference path="./term" />declare module "vertx-shell-js/shell_server" {  export = ShellServer;}
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="./term_server" />
+/// <reference path="../vertx-js/vertx" />
+/// <reference path="./shell" />
+/// <reference path="./command_resolver" />
+/// <reference path="./term" />
+
+declare module "vertx-shell-js/shell_server" {
+  export = ShellServer;
+}
 
 /**
  * The shell server.<p/>
@@ -11,55 +20,60 @@
  *
  * The createShell method can be used to create  instance for testing purposes.
  */
+declare interface ShellServer {
 
-declare interface ShellServer{                            
-
-/**
+  /**
    * Register a command resolver for this server.
    */
-  registerCommandResolver(resolver: CommandResolver): ShellServer;              
+  registerCommandResolver(resolver: CommandResolver): ShellServer;
 
-/**
+  /**
    * Register a term server to this shell server, the term server lifecycle methods are managed by this shell server.
    */
-  registerTermServer(termServer: TermServer): ShellServer;              
+  registerTermServer(termServer: TermServer): ShellServer;
 
-/**
+  /**
    * Create a new shell, the returned shell should be closed explicitely.
    */
-  createShell(term: Term): Shell;              
+  createShell(term: Term): Shell;
 
-/**
+  /**
    * Create a new shell, the returned shell should be closed explicitely.
    */
-  createShell(): Shell;              
+  createShell(): Shell;
 
-/**
+  /**
    * Start the shell service, this is an asynchronous start.
    */
-  listen(): ShellServer;              
+  listen(): ShellServer;
 
-/**
+  /**
    * Start the shell service, this is an asynchronous start.
    */
-  listen(listenHandler: (res: void, err?: Throwable) => void): ShellServer;              
+  listen(listenHandler: (res: void, err?: Throwable) => void): ShellServer;
 
-/**
+  /**
    * Close the shell server, this is an asynchronous close.
    */
-  close(): void;              
+  close(): void;
 
-/**
+  /**
    * Close the shell server, this is an asynchronous close.
    */
-  close(completionHandler: (res: void, err?: Throwable) => void): void;    }                    declare var ShellServer: {        
+  close(completionHandler: (res: void, err?: Throwable) => void): void;
 
-/**
+}
+
+declare var ShellServer: {
+
+  /**
    * Create a new shell server with default options.
    */
-  create(vertx: Vertx, options: any): ShellServer;          
+  create(vertx: Vertx, options: any): ShellServer;
 
-/**
+  /**
    * Create a new shell server with specific options.
    */
-  create(vertx: Vertx): ShellServer;                                  }
+  create(vertx: Vertx): ShellServer;
+
+}

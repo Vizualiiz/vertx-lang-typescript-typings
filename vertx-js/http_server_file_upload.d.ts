@@ -1,48 +1,69 @@
-/// <reference path="./globals.d.ts" />/// <reference path="./buffer" />/// <reference path="./read_stream" />declare module "vertx-js/http_server_file_upload" {  export = HttpServerFileUpload;}
+/// <reference path="./globals.d.ts" />
+/// <reference path="./buffer" />
+/// <reference path="./read_stream" />
+
+declare module "vertx-js/http_server_file_upload" {
+  export = HttpServerFileUpload;
+}
 
 /**
  * Represents an file upload from an HTML FORM.
  */
+declare interface HttpServerFileUpload extends ReadStream {
 
-declare interface HttpServerFileUpload  extends      ReadStream  {            exceptionHandler(handler: (e: Throwable) => void): HttpServerFileUpload;              handler(handler: (e: Buffer) => void): HttpServerFileUpload;              endHandler(endHandler: (e: void) => void): HttpServerFileUpload;              pause(): HttpServerFileUpload;              resume(): HttpServerFileUpload;              
+  exceptionHandler(handler: (e: Throwable) => void): HttpServerFileUpload;
 
-/**
+  handler(handler: (e: Buffer) => void): HttpServerFileUpload;
+
+  endHandler(endHandler: (e: void) => void): HttpServerFileUpload;
+
+  pause(): HttpServerFileUpload;
+
+  resume(): HttpServerFileUpload;
+
+  /**
    * Stream the content of this upload to the given file on storage.
    */
-  streamToFileSystem(filename: string): HttpServerFileUpload;              
+  streamToFileSystem(filename: string): HttpServerFileUpload;
 
-/**
+  /**
    * @return the filename which was used when upload the file.
    */
-  filename(): string;              
+  filename(): string;
 
-/**
+  /**
    * @return the name of the attribute
    */
-  name(): string;              
+  name(): string;
 
-/**
+  /**
    * @return  the content type for the upload
    */
-  contentType(): string;              
+  contentType(): string;
 
-/**
+  /**
    * @return the contentTransferEncoding for the upload
    */
-  contentTransferEncoding(): string;              
+  contentTransferEncoding(): string;
 
-/**
+  /**
    * @return the charset for the upload
    */
-  charset(): string;              
+  charset(): string;
 
-/**
+  /**
    * The size of the upload may not be available until it is all read.
- * Check isSizeAvailable to determine this
+   * Check isSizeAvailable to determine this
    */
-  size(): number;              
+  size(): number;
 
-/**
+  /**
    * @return true if the size of the upload can be retrieved via size.
    */
-  isSizeAvailable(): boolean;    }                          declare var HttpServerFileUpload: {}
+  isSizeAvailable(): boolean;
+
+}
+
+declare var HttpServerFileUpload: {
+
+}

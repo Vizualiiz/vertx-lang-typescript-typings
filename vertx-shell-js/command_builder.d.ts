@@ -1,35 +1,49 @@
-/// <reference path="../vertx-js/globals.d.ts" />/// <reference path="./command" />/// <reference path="./completion" />/// <reference path="../vertx-js/cli" />/// <reference path="../vertx-js/vertx" />/// <reference path="./command_process" />declare module "vertx-shell-js/command_builder" {  export = CommandBuilder;}
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="./command" />
+/// <reference path="./completion" />
+/// <reference path="../vertx-js/cli" />
+/// <reference path="../vertx-js/vertx" />
+/// <reference path="./command_process" />
+
+declare module "vertx-shell-js/command_builder" {
+  export = CommandBuilder;
+}
 
 /**
  * A build for Vert.x Shell command.
  */
+declare interface CommandBuilder {
 
-declare interface CommandBuilder{                            
-
-/**
+  /**
    * Set the command process handler, the process handler is called when the command is executed.
    */
-  processHandler(handler: (e: CommandProcess) => void): CommandBuilder;              
+  processHandler(handler: (e: CommandProcess) => void): CommandBuilder;
 
-/**
+  /**
    * Set the command completion handler, the completion handler when the user asks for contextual command line
- * completion, usually hitting the <i>tab</i> key.
+   * completion, usually hitting the <i>tab</i> key.
    */
-  completionHandler(handler: (e: Completion) => void): CommandBuilder;              
+  completionHandler(handler: (e: Completion) => void): CommandBuilder;
 
-/**
+  /**
    * Build the command
    */
-  build(vertx: Vertx): Command;    }          declare var CommandBuilder: {        
+  build(vertx: Vertx): Command;
 
-/**
+}
+
+declare var CommandBuilder: {
+
+  /**
    * Create a new commmand builder, the command is responsible for managing the options and arguments via the
- * #args() arguments.
+   * #args() arguments.
    */
-  command(name: string): CommandBuilder;          
+  command(name: string): CommandBuilder;
 
-/**
+  /**
    * Create a new commmand with its CLI descriptor. This command can then retrieve the parsed
- * commandLine when it executes to know get the command arguments and options.
+   * commandLine when it executes to know get the command arguments and options.
    */
-  command(cli: CLI): CommandBuilder;              }
+  command(cli: CLI): CommandBuilder;
+
+}

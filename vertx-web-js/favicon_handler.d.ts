@@ -1,34 +1,44 @@
-/// <reference path="../vertx-js/globals.d.ts" />/// <reference path="./routing_context" />declare module "vertx-web-js/favicon_handler" {  export = FaviconHandler;}
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="./routing_context" />
+
+declare module "vertx-web-js/favicon_handler" {
+  export = FaviconHandler;
+}
 
 /**
  * A handler that serves favicons.
  * <p>
  * If no file system path is specified it will attempt to serve a resource called `favicon.ico` from the classpath.
  */
+declare interface FaviconHandler {
 
-declare interface FaviconHandler{            
-
-/**
+  /**
    * Something has happened, so handle it.
    */
-  handle(event: RoutingContext): void;                                    }          declare var FaviconHandler: {            
+  handle(event: RoutingContext): void;
 
-/**
+}
+
+declare var FaviconHandler: {
+
+  /**
    * Create a handler with defaults
    */
-  create(): FaviconHandler;          
+  create(): FaviconHandler;
 
-/**
+  /**
    * Create a handler attempting to load favicon file from the specified path
    */
-  create(path: string): FaviconHandler;          
+  create(path: string): FaviconHandler;
 
-/**
+  /**
    * Create a handler attempting to load favicon file from the specified path, and with the specified max cache time
    */
-  create(path: string, maxAgeSeconds: number): FaviconHandler;          
+  create(path: string, maxAgeSeconds: number): FaviconHandler;
 
-/**
+  /**
    * Create a handler with the specified max cache time
    */
-  create(maxAgeSeconds: number): FaviconHandler;  }
+  create(maxAgeSeconds: number): FaviconHandler;
+
+}

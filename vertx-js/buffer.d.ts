@@ -1,4 +1,8 @@
-/// <reference path="./globals.d.ts" />declare module "vertx-js/buffer" {  export = Buffer;}
+/// <reference path="./globals.d.ts" />
+
+declare module "vertx-js/buffer" {
+  export = Buffer;
+}
 
 /**
  * Most data is shuffled around inside Vert.x using buffers.
@@ -8,426 +12,431 @@
  * <p>
  * Please consult the documentation for more information on buffers.
  */
+declare interface Buffer {
 
-declare interface Buffer{                                            
-
-/**
+  /**
    * Returns a <code>String</code> representation of the Buffer with the <code>UTF-8</code>encoding
    */
-  toString(): string;              
+  toString(): string;
 
-/**
+  /**
    * Returns a <code>String</code> representation of the Buffer with the encoding specified by <code>enc</code>
    */
-  toString(enc: string): string;              
+  toString(enc: string): string;
 
-/**
+  /**
    * Returns a Json object representation of the Buffer
    */
-  toJsonObject(): any;              
+  toJsonObject(): any;
 
-/**
+  /**
    * Returns a Json array representation of the Buffer
    */
-  toJsonArray(): any[];              
+  toJsonArray(): any[];
 
-/**
+  /**
    * Returns the <code>byte</code> at position <code>pos</code> in the Buffer.
    */
-  getByte(pos: number): number;              
+  getByte(pos: number): number;
 
-/**
+  /**
    * Returns the unsigned <code>byte</code> at position <code>pos</code> in the Buffer, as a <code>short</code>.
    */
-  getUnsignedByte(pos: number): number;              
+  getUnsignedByte(pos: number): number;
 
-/**
+  /**
    * Returns the <code>int</code> at position <code>pos</code> in the Buffer.
    */
-  getInt(pos: number): number;              
+  getInt(pos: number): number;
 
-/**
+  /**
    * Gets a 32-bit integer at the specified absolute <code>index</code> in this buffer with Little Endian Byte Order.
    */
-  getIntLE(pos: number): number;              
+  getIntLE(pos: number): number;
 
-/**
+  /**
    * Returns the unsigned <code>int</code> at position <code>pos</code> in the Buffer, as a <code>long</code>.
    */
-  getUnsignedInt(pos: number): number;              
+  getUnsignedInt(pos: number): number;
 
-/**
+  /**
    * Returns the unsigned <code>int</code> at position <code>pos</code> in the Buffer, as a <code>long</code> in Little Endian Byte Order.
    */
-  getUnsignedIntLE(pos: number): number;              
+  getUnsignedIntLE(pos: number): number;
 
-/**
+  /**
    * Returns the <code>long</code> at position <code>pos</code> in the Buffer.
    */
-  getLong(pos: number): number;              
+  getLong(pos: number): number;
 
-/**
+  /**
    * Gets a 64-bit long integer at the specified absolute <code>index</code> in this buffer in Little Endian Byte Order.
    */
-  getLongLE(pos: number): number;              
+  getLongLE(pos: number): number;
 
-/**
+  /**
    * Returns the <code>double</code> at position <code>pos</code> in the Buffer.
    */
-  getDouble(pos: number): number;              
+  getDouble(pos: number): number;
 
-/**
+  /**
    * Returns the <code>float</code> at position <code>pos</code> in the Buffer.
    */
-  getFloat(pos: number): number;              
+  getFloat(pos: number): number;
 
-/**
+  /**
    * Returns the <code>short</code> at position <code>pos</code> in the Buffer.
    */
-  getShort(pos: number): number;              
+  getShort(pos: number): number;
 
-/**
+  /**
    * Gets a 16-bit short integer at the specified absolute <code>index</code> in this buffer in Little Endian Byte Order.
    */
-  getShortLE(pos: number): number;              
+  getShortLE(pos: number): number;
 
-/**
+  /**
    * Returns the unsigned <code>short</code> at position <code>pos</code> in the Buffer, as an <code>int</code>.
    */
-  getUnsignedShort(pos: number): number;              
+  getUnsignedShort(pos: number): number;
 
-/**
+  /**
    * Gets an unsigned 16-bit short integer at the specified absolute <code>index</code> in this buffer in Little Endian Byte Order.
    */
-  getUnsignedShortLE(pos: number): number;              
+  getUnsignedShortLE(pos: number): number;
 
-/**
+  /**
    * Gets a 24-bit medium integer at the specified absolute <code>index</code> in this buffer.
    */
-  getMedium(pos: number): number;              
+  getMedium(pos: number): number;
 
-/**
+  /**
    * Gets a 24-bit medium integer at the specified absolute <code>index</code> in this buffer in the Little Endian Byte Order.
    */
-  getMediumLE(pos: number): number;              
+  getMediumLE(pos: number): number;
 
-/**
+  /**
    * Gets an unsigned 24-bit medium integer at the specified absolute <code>index</code> in this buffer.
    */
-  getUnsignedMedium(pos: number): number;              
+  getUnsignedMedium(pos: number): number;
 
-/**
+  /**
    * Gets an unsigned 24-bit medium integer at the specified absolute <code>index</code> in this buffer in Little Endian Byte Order.
    */
-  getUnsignedMediumLE(pos: number): number;              
+  getUnsignedMediumLE(pos: number): number;
 
-/**
+  /**
    * Returns a copy of a sub-sequence the Buffer as a Buffer starting at position <code>start</code>
- * and ending at position <code>end - 1</code>
+   * and ending at position <code>end - 1</code>
    */
-  getBuffer(start: number, end: number): Buffer;              
+  getBuffer(start: number, end: number): Buffer;
 
-/**
+  /**
    * Returns a copy of a sub-sequence the Buffer as a <code>String</code> starting at position <code>start</code>
- * and ending at position <code>end - 1</code> interpreted as a String in the specified encoding
+   * and ending at position <code>end - 1</code> interpreted as a String in the specified encoding
    */
-  getString(start: number, end: number, enc: string): string;              
+  getString(start: number, end: number, enc: string): string;
 
-/**
+  /**
    * Returns a copy of a sub-sequence the Buffer as a <code>String</code> starting at position <code>start</code>
- * and ending at position <code>end - 1</code> interpreted as a String in UTF-8 encoding
+   * and ending at position <code>end - 1</code> interpreted as a String in UTF-8 encoding
    */
-  getString(start: number, end: number): string;              
+  getString(start: number, end: number): string;
 
-/**
+  /**
    * Appends the specified <code>Buffer</code> to the end of this Buffer. The buffer will expand as necessary to accommodate
- * any bytes written.<p>
- * Returns a reference to <code>this</code> so multiple operations can be appended together.
+   * any bytes written.<p>
+   * Returns a reference to <code>this</code> so multiple operations can be appended together.
    */
-  appendBuffer(buff: Buffer): Buffer;              
+  appendBuffer(buff: Buffer): Buffer;
 
-/**
+  /**
    * Appends the specified <code>Buffer</code> starting at the <code>offset</code> using <code>len</code> to the end of this Buffer. The buffer will expand as necessary to accommodate
- * any bytes written.<p>
- * Returns a reference to <code>this</code> so multiple operations can be appended together.
+   * any bytes written.<p>
+   * Returns a reference to <code>this</code> so multiple operations can be appended together.
    */
-  appendBuffer(buff: Buffer, offset: number, len: number): Buffer;              
+  appendBuffer(buff: Buffer, offset: number, len: number): Buffer;
 
-/**
+  /**
    * Appends the specified <code>byte</code> to the end of the Buffer. The buffer will expand as necessary to accommodate any bytes written.<p>
- * Returns a reference to <code>this</code> so multiple operations can be appended together.
+   * Returns a reference to <code>this</code> so multiple operations can be appended together.
    */
-  appendByte(b: number): Buffer;              
+  appendByte(b: number): Buffer;
 
-/**
+  /**
    * Appends the specified unsigned <code>byte</code> to the end of the Buffer. The buffer will expand as necessary to accommodate any bytes written.<p>
- * Returns a reference to <code>this</code> so multiple operations can be appended together.
+   * Returns a reference to <code>this</code> so multiple operations can be appended together.
    */
-  appendUnsignedByte(b: number): Buffer;              
+  appendUnsignedByte(b: number): Buffer;
 
-/**
+  /**
    * Appends the specified <code>int</code> to the end of the Buffer. The buffer will expand as necessary to accommodate any bytes written.<p>
- * Returns a reference to <code>this</code> so multiple operations can be appended together.
+   * Returns a reference to <code>this</code> so multiple operations can be appended together.
    */
-  appendInt(i: number): Buffer;              
+  appendInt(i: number): Buffer;
 
-/**
+  /**
    * Appends the specified <code>int</code> to the end of the Buffer in the Little Endian Byte Order. The buffer will expand as necessary to accommodate any bytes written.<p>
- * Returns a reference to <code>this</code> so multiple operations can be appended together.
+   * Returns a reference to <code>this</code> so multiple operations can be appended together.
    */
-  appendIntLE(i: number): Buffer;              
+  appendIntLE(i: number): Buffer;
 
-/**
+  /**
    * Appends the specified unsigned <code>int</code> to the end of the Buffer. The buffer will expand as necessary to accommodate any bytes written.<p>
- * Returns a reference to <code>this</code> so multiple operations can be appended together.
+   * Returns a reference to <code>this</code> so multiple operations can be appended together.
    */
-  appendUnsignedInt(i: number): Buffer;              
+  appendUnsignedInt(i: number): Buffer;
 
-/**
+  /**
    * Appends the specified unsigned <code>int</code> to the end of the Buffer in the Little Endian Byte Order. The buffer will expand as necessary to accommodate any bytes written.<p>
- * Returns a reference to <code>this</code> so multiple operations can be appended together.
+   * Returns a reference to <code>this</code> so multiple operations can be appended together.
    */
-  appendUnsignedIntLE(i: number): Buffer;              
+  appendUnsignedIntLE(i: number): Buffer;
 
-/**
+  /**
    * Appends the specified 24bit <code>int</code> to the end of the Buffer. The buffer will expand as necessary to accommodate any bytes written.<p>
- * Returns a reference to <code>this</code> so multiple operations can be appended together.
+   * Returns a reference to <code>this</code> so multiple operations can be appended together.
    */
-  appendMedium(i: number): Buffer;              
+  appendMedium(i: number): Buffer;
 
-/**
+  /**
    * Appends the specified 24bit <code>int</code> to the end of the Buffer in the Little Endian Byte Order. The buffer will expand as necessary to accommodate any bytes written.<p>
- * Returns a reference to <code>this</code> so multiple operations can be appended together.
+   * Returns a reference to <code>this</code> so multiple operations can be appended together.
    */
-  appendMediumLE(i: number): Buffer;              
+  appendMediumLE(i: number): Buffer;
 
-/**
+  /**
    * Appends the specified <code>long</code> to the end of the Buffer. The buffer will expand as necessary to accommodate any bytes written.<p>
- * Returns a reference to <code>this</code> so multiple operations can be appended together.
+   * Returns a reference to <code>this</code> so multiple operations can be appended together.
    */
-  appendLong(l: number): Buffer;              
+  appendLong(l: number): Buffer;
 
-/**
+  /**
    * Appends the specified <code>long</code> to the end of the Buffer in the Little Endian Byte Order. The buffer will expand as necessary to accommodate any bytes written.<p>
- * Returns a reference to <code>this</code> so multiple operations can be appended together.
+   * Returns a reference to <code>this</code> so multiple operations can be appended together.
    */
-  appendLongLE(l: number): Buffer;              
+  appendLongLE(l: number): Buffer;
 
-/**
+  /**
    * Appends the specified <code>short</code> to the end of the Buffer.The buffer will expand as necessary to accommodate any bytes written.<p>
- * Returns a reference to <code>this</code> so multiple operations can be appended together.
+   * Returns a reference to <code>this</code> so multiple operations can be appended together.
    */
-  appendShort(s: number): Buffer;              
+  appendShort(s: number): Buffer;
 
-/**
+  /**
    * Appends the specified <code>short</code> to the end of the Buffer in the Little Endian Byte Order.The buffer will expand as necessary to accommodate any bytes written.<p>
- * Returns a reference to <code>this</code> so multiple operations can be appended together.
+   * Returns a reference to <code>this</code> so multiple operations can be appended together.
    */
-  appendShortLE(s: number): Buffer;              
+  appendShortLE(s: number): Buffer;
 
-/**
+  /**
    * Appends the specified unsigned <code>short</code> to the end of the Buffer.The buffer will expand as necessary to accommodate any bytes written.<p>
- * Returns a reference to <code>this</code> so multiple operations can be appended together.
+   * Returns a reference to <code>this</code> so multiple operations can be appended together.
    */
-  appendUnsignedShort(s: number): Buffer;              
+  appendUnsignedShort(s: number): Buffer;
 
-/**
+  /**
    * Appends the specified unsigned <code>short</code> to the end of the Buffer in the Little Endian Byte Order.The buffer will expand as necessary to accommodate any bytes written.<p>
- * Returns a reference to <code>this</code> so multiple operations can be appended together.
+   * Returns a reference to <code>this</code> so multiple operations can be appended together.
    */
-  appendUnsignedShortLE(s: number): Buffer;              
+  appendUnsignedShortLE(s: number): Buffer;
 
-/**
+  /**
    * Appends the specified <code>float</code> to the end of the Buffer. The buffer will expand as necessary to accommodate any bytes written.<p>
- * Returns a reference to <code>this</code> so multiple operations can be appended together.
+   * Returns a reference to <code>this</code> so multiple operations can be appended together.
    */
-  appendFloat(f: number): Buffer;              
+  appendFloat(f: number): Buffer;
 
-/**
+  /**
    * Appends the specified <code>double</code> to the end of the Buffer. The buffer will expand as necessary to accommodate any bytes written.<p>
- * Returns a reference to <code>this</code> so multiple operations can be appended together.
+   * Returns a reference to <code>this</code> so multiple operations can be appended together.
    */
-  appendDouble(d: number): Buffer;              
+  appendDouble(d: number): Buffer;
 
-/**
+  /**
    * Appends the specified <code>String</code> to the end of the Buffer with the encoding as specified by <code>enc</code>.<p>
- * The buffer will expand as necessary to accommodate any bytes written.<p>
- * Returns a reference to <code>this</code> so multiple operations can be appended together.<p>
+   * The buffer will expand as necessary to accommodate any bytes written.<p>
+   * Returns a reference to <code>this</code> so multiple operations can be appended together.<p>
    */
-  appendString(str: string, enc: string): Buffer;              
+  appendString(str: string, enc: string): Buffer;
 
-/**
+  /**
    * Appends the specified <code>String str</code> to the end of the Buffer with UTF-8 encoding.<p>
- * The buffer will expand as necessary to accommodate any bytes written.<p>
- * Returns a reference to <code>this</code> so multiple operations can be appended together<p>
+   * The buffer will expand as necessary to accommodate any bytes written.<p>
+   * Returns a reference to <code>this</code> so multiple operations can be appended together<p>
    */
-  appendString(str: string): Buffer;              
+  appendString(str: string): Buffer;
 
-/**
+  /**
    * Sets the <code>byte</code> at position <code>pos</code> in the Buffer to the value <code>b</code>.<p>
- * The buffer will expand as necessary to accommodate any value written.
+   * The buffer will expand as necessary to accommodate any value written.
    */
-  setByte(pos: number, b: number): Buffer;              
+  setByte(pos: number, b: number): Buffer;
 
-/**
+  /**
    * Sets the unsigned <code>byte</code> at position <code>pos</code> in the Buffer to the value <code>b</code>.<p>
- * The buffer will expand as necessary to accommodate any value written.
+   * The buffer will expand as necessary to accommodate any value written.
    */
-  setUnsignedByte(pos: number, b: number): Buffer;              
+  setUnsignedByte(pos: number, b: number): Buffer;
 
-/**
+  /**
    * Sets the <code>int</code> at position <code>pos</code> in the Buffer to the value <code>i</code>.<p>
- * The buffer will expand as necessary to accommodate any value written.
+   * The buffer will expand as necessary to accommodate any value written.
    */
-  setInt(pos: number, i: number): Buffer;              
+  setInt(pos: number, i: number): Buffer;
 
-/**
+  /**
    * Sets the <code>int</code> at position <code>pos</code> in the Buffer to the value <code>i</code> in the Little Endian Byte Order.<p>
- * The buffer will expand as necessary to accommodate any value written.
+   * The buffer will expand as necessary to accommodate any value written.
    */
-  setIntLE(pos: number, i: number): Buffer;              
+  setIntLE(pos: number, i: number): Buffer;
 
-/**
+  /**
    * Sets the unsigned <code>int</code> at position <code>pos</code> in the Buffer to the value <code>i</code>.<p>
- * The buffer will expand as necessary to accommodate any value written.
+   * The buffer will expand as necessary to accommodate any value written.
    */
-  setUnsignedInt(pos: number, i: number): Buffer;              
+  setUnsignedInt(pos: number, i: number): Buffer;
 
-/**
+  /**
    * Sets the unsigned <code>int</code> at position <code>pos</code> in the Buffer to the value <code>i</code> in the Little Endian Byte Order.<p>
- * The buffer will expand as necessary to accommodate any value written.
+   * The buffer will expand as necessary to accommodate any value written.
    */
-  setUnsignedIntLE(pos: number, i: number): Buffer;              
+  setUnsignedIntLE(pos: number, i: number): Buffer;
 
-/**
+  /**
    * Sets the 24bit <code>int</code> at position <code>pos</code> in the Buffer to the value <code>i</code>.<p>
- * The buffer will expand as necessary to accommodate any value written.
+   * The buffer will expand as necessary to accommodate any value written.
    */
-  setMedium(pos: number, i: number): Buffer;              
+  setMedium(pos: number, i: number): Buffer;
 
-/**
+  /**
    * Sets the 24bit <code>int</code> at position <code>pos</code> in the Buffer to the value <code>i</code>. in the Little Endian Byte Order<p>
- * The buffer will expand as necessary to accommodate any value written.
+   * The buffer will expand as necessary to accommodate any value written.
    */
-  setMediumLE(pos: number, i: number): Buffer;              
+  setMediumLE(pos: number, i: number): Buffer;
 
-/**
+  /**
    * Sets the <code>long</code> at position <code>pos</code> in the Buffer to the value <code>l</code>.<p>
- * The buffer will expand as necessary to accommodate any value written.
+   * The buffer will expand as necessary to accommodate any value written.
    */
-  setLong(pos: number, l: number): Buffer;              
+  setLong(pos: number, l: number): Buffer;
 
-/**
+  /**
    * Sets the <code>long</code> at position <code>pos</code> in the Buffer to the value <code>l</code> in the Little Endian Byte Order.<p>
- * The buffer will expand as necessary to accommodate any value written.
+   * The buffer will expand as necessary to accommodate any value written.
    */
-  setLongLE(pos: number, l: number): Buffer;              
+  setLongLE(pos: number, l: number): Buffer;
 
-/**
+  /**
    * Sets the <code>double</code> at position <code>pos</code> in the Buffer to the value <code>d</code>.<p>
- * The buffer will expand as necessary to accommodate any value written.
+   * The buffer will expand as necessary to accommodate any value written.
    */
-  setDouble(pos: number, d: number): Buffer;              
+  setDouble(pos: number, d: number): Buffer;
 
-/**
+  /**
    * Sets the <code>float</code> at position <code>pos</code> in the Buffer to the value <code>f</code>.<p>
- * The buffer will expand as necessary to accommodate any value written.
+   * The buffer will expand as necessary to accommodate any value written.
    */
-  setFloat(pos: number, f: number): Buffer;              
+  setFloat(pos: number, f: number): Buffer;
 
-/**
+  /**
    * Sets the <code>short</code> at position <code>pos</code> in the Buffer to the value <code>s</code>.<p>
- * The buffer will expand as necessary to accommodate any value written.
+   * The buffer will expand as necessary to accommodate any value written.
    */
-  setShort(pos: number, s: number): Buffer;              
+  setShort(pos: number, s: number): Buffer;
 
-/**
+  /**
    * Sets the <code>short</code> at position <code>pos</code> in the Buffer to the value <code>s</code> in the Little Endian Byte Order.<p>
- * The buffer will expand as necessary to accommodate any value written.
+   * The buffer will expand as necessary to accommodate any value written.
    */
-  setShortLE(pos: number, s: number): Buffer;              
+  setShortLE(pos: number, s: number): Buffer;
 
-/**
+  /**
    * Sets the unsigned <code>short</code> at position <code>pos</code> in the Buffer to the value <code>s</code>.<p>
- * The buffer will expand as necessary to accommodate any value written.
+   * The buffer will expand as necessary to accommodate any value written.
    */
-  setUnsignedShort(pos: number, s: number): Buffer;              
+  setUnsignedShort(pos: number, s: number): Buffer;
 
-/**
+  /**
    * Sets the unsigned <code>short</code> at position <code>pos</code> in the Buffer to the value <code>s</code> in the Little Endian Byte Order.<p>
- * The buffer will expand as necessary to accommodate any value written.
+   * The buffer will expand as necessary to accommodate any value written.
    */
-  setUnsignedShortLE(pos: number, s: number): Buffer;              
+  setUnsignedShortLE(pos: number, s: number): Buffer;
 
-/**
+  /**
    * Sets the bytes at position <code>pos</code> in the Buffer to the bytes represented by the <code>Buffer b</code>.<p>
- * The buffer will expand as necessary to accommodate any value written.
+   * The buffer will expand as necessary to accommodate any value written.
    */
-  setBuffer(pos: number, b: Buffer): Buffer;              
+  setBuffer(pos: number, b: Buffer): Buffer;
 
-/**
+  /**
    * Sets the bytes at position <code>pos</code> in the Buffer to the bytes represented by the <code>Buffer b</code> on the given <code>offset</code> and <code>len</code>.<p>
- * The buffer will expand as necessary to accommodate any value written.
+   * The buffer will expand as necessary to accommodate any value written.
    */
-  setBuffer(pos: number, b: Buffer, offset: number, len: number): Buffer;              
+  setBuffer(pos: number, b: Buffer, offset: number, len: number): Buffer;
 
-/**
+  /**
    * Sets the bytes at position <code>pos</code> in the Buffer to the value of <code>str</code> encoded in UTF-8.<p>
- * The buffer will expand as necessary to accommodate any value written.
+   * The buffer will expand as necessary to accommodate any value written.
    */
-  setString(pos: number, str: string): Buffer;              
+  setString(pos: number, str: string): Buffer;
 
-/**
+  /**
    * Sets the bytes at position <code>pos</code> in the Buffer to the value of <code>str</code> encoded in encoding <code>enc</code>.<p>
- * The buffer will expand as necessary to accommodate any value written.
+   * The buffer will expand as necessary to accommodate any value written.
    */
-  setString(pos: number, str: string, enc: string): Buffer;              
+  setString(pos: number, str: string, enc: string): Buffer;
 
-/**
+  /**
    * Returns the length of the buffer, measured in bytes.
- * All positions are indexed from zero.
+   * All positions are indexed from zero.
    */
-  length(): number;              
+  length(): number;
 
-/**
+  /**
    * Returns a copy of the entire Buffer.
    */
-  copy(): Buffer;              
+  copy(): Buffer;
 
-/**
+  /**
    * Returns a slice of this buffer. Modifying the content
- * of the returned buffer or this buffer affects each other's content
- * while they maintain separate indexes and marks.
+   * of the returned buffer or this buffer affects each other's content
+   * while they maintain separate indexes and marks.
    */
-  slice(): Buffer;              
+  slice(): Buffer;
 
-/**
+  /**
    * Returns a slice of this buffer. Modifying the content
- * of the returned buffer or this buffer affects each other's content
- * while they maintain separate indexes and marks.
+   * of the returned buffer or this buffer affects each other's content
+   * while they maintain separate indexes and marks.
    */
-  slice(start: number, end: number): Buffer;    }                                                                                                                                                  declare var Buffer: {        
+  slice(start: number, end: number): Buffer;
 
-/**
+}
+
+declare var Buffer: {
+
+  /**
    * Create a new, empty buffer.
    */
-  buffer(): Buffer;          
+  buffer(): Buffer;
 
-/**
+  /**
    * Create a new buffer given the initial size hint.
- * <p>
- * If you know the buffer will require a certain size, providing the hint can prevent unnecessary re-allocations
- * as the buffer is written to and resized.
+   * <p>
+   * If you know the buffer will require a certain size, providing the hint can prevent unnecessary re-allocations
+   * as the buffer is written to and resized.
    */
-  buffer(initialSizeHint: number): Buffer;          
+  buffer(initialSizeHint: number): Buffer;
 
-/**
+  /**
    * Create a new buffer from a string. The string will be UTF-8 encoded into the buffer.
    */
-  buffer(string: string): Buffer;          
+  buffer(string: string): Buffer;
 
-/**
+  /**
    * Create a new buffer from a string and using the specified encoding.
- * The string will be encoded into the buffer using the specified encoding.
+   * The string will be encoded into the buffer using the specified encoding.
    */
-  buffer(string: string, enc: string): Buffer;                                                                                                                                                                                                                                                                                      }
+  buffer(string: string, enc: string): Buffer;
+
+}

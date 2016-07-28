@@ -1,4 +1,18 @@
-/// <reference path="../vertx-js/globals.d.ts" />/// <reference path="./route" />/// <reference path="./cookie" />/// <reference path="./locale" />/// <reference path="./file_upload" />/// <reference path="../vertx-js/http_server_request" />/// <reference path="./session" />/// <reference path="../vertx-auth-common-js/user" />/// <reference path="../vertx-js/buffer" />/// <reference path="../vertx-js/http_server_response" />/// <reference path="../vertx-js/vertx" />declare module "vertx-web-js/routing_context" {  export = RoutingContext;}
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="./route" />
+/// <reference path="./cookie" />
+/// <reference path="./locale" />
+/// <reference path="./file_upload" />
+/// <reference path="../vertx-js/http_server_request" />
+/// <reference path="./session" />
+/// <reference path="../vertx-auth-common-js/user" />
+/// <reference path="../vertx-js/buffer" />
+/// <reference path="../vertx-js/http_server_response" />
+/// <reference path="../vertx-js/vertx" />
+
+declare module "vertx-web-js/routing_context" {
+  export = RoutingContext;
+}
 
 /**
  * Represents the context for the handling of a request in Vert.x-Web.
@@ -16,273 +30,278 @@
  * The context also provides access to the Session, cookies and body for the request, given the correct handlers
  * in the application.
  */
+declare interface RoutingContext {
 
-declare interface RoutingContext{            
-
-/**
+  /**
    * @return the HTTP request object
    */
-  request(): HttpServerRequest;              
+  request(): HttpServerRequest;
 
-/**
+  /**
    * @return the HTTP response object
    */
-  response(): HttpServerResponse;              
+  response(): HttpServerResponse;
 
-/**
+  /**
    * Tell the router to route this context to the next matching route (if any).
- * This method, if called, does not need to be called during the execution of the handler, it can be called
- * some arbitrary time later, if required.
- * <p>
- * If next is not called for a handler then the handler should make sure it ends the response or no response
- * will be sent.
+   * This method, if called, does not need to be called during the execution of the handler, it can be called
+   * some arbitrary time later, if required.
+   * <p>
+   * If next is not called for a handler then the handler should make sure it ends the response or no response
+   * will be sent.
    */
-  next(): void;              
+  next(): void;
 
-/**
+  /**
    * Fail the context with the specified status code.
- * <p>
- * This will cause the router to route the context to any matching failure handlers for the request. If no failure handlers
- * match a default failure response will be sent.
+   * <p>
+   * This will cause the router to route the context to any matching failure handlers for the request. If no failure handlers
+   * match a default failure response will be sent.
    */
-  fail(statusCode: number): void;              
+  fail(statusCode: number): void;
 
-/**
+  /**
    * Fail the context with the specified throwable.
- * <p>
- * This will cause the router to route the context to any matching failure handlers for the request. If no failure handlers
- * match a default failure response with status code 500 will be sent.
+   * <p>
+   * This will cause the router to route the context to any matching failure handlers for the request. If no failure handlers
+   * match a default failure response with status code 500 will be sent.
    */
-  fail(throwable: Throwable): void;              
+  fail(throwable: Throwable): void;
 
-/**
+  /**
    * Put some arbitrary data in the context. This will be available in any handlers that receive the context.
    */
-  put(key: string, obj: any): RoutingContext;              
+  put(key: string, obj: any): RoutingContext;
 
-/**
+  /**
    * Get some data from the context. The data is available in any handlers that receive the context.
    */
-  get(key: string): any;              
+  get(key: string): any;
 
-/**
+  /**
    * @return the Vert.x instance associated to the initiating Router for this context
    */
-  vertx(): Vertx;              
+  vertx(): Vertx;
 
-/**
+  /**
    * @return the mount point for this router. It will be null for a top level router. For a sub-router it will be the path
- * at which the subrouter was mounted.
+   * at which the subrouter was mounted.
    */
-  mountPoint(): string;              
+  mountPoint(): string;
 
-/**
+  /**
    * @return the current route this context is being routed through.
    */
-  currentRoute(): Route;              
+  currentRoute(): Route;
 
-/**
+  /**
    * Return the normalised path for the request.
- * <p>
- * The normalised path is where the URI path has been decoded, i.e. any unicode or other illegal URL characters that
- * were encoded in the original URL with `%` will be returned to their original form. E.g. `%20` will revert to a space.
- * Also `+` reverts to a space in a query.
- * <p>
- * The normalised path will also not contain any `..` character sequences to prevent resources being accessed outside
- * of the permitted area.
- * <p>
- * It's recommended to always use the normalised path as opposed to 
- * if accessing server resources requested by a client.
+   * <p>
+   * The normalised path is where the URI path has been decoded, i.e. any unicode or other illegal URL characters that
+   * were encoded in the original URL with `%` will be returned to their original form. E.g. `%20` will revert to a space.
+   * Also `+` reverts to a space in a query.
+   * <p>
+   * The normalised path will also not contain any `..` character sequences to prevent resources being accessed outside
+   * of the permitted area.
+   * <p>
+   * It's recommended to always use the normalised path as opposed to 
+   * if accessing server resources requested by a client.
    */
-  normalisedPath(): string;              
+  normalisedPath(): string;
 
-/**
+  /**
    * Get the cookie with the specified name. The context must have first been routed to a CookieHandler
- * for this to work.
+   * for this to work.
    */
-  getCookie(name: string): Cookie;              
+  getCookie(name: string): Cookie;
 
-/**
+  /**
    * Add a cookie. This will be sent back to the client in the response. The context must have first been routed
- * to a CookieHandler for this to work.
+   * to a CookieHandler for this to work.
    */
-  addCookie(cookie: Cookie): RoutingContext;              
+  addCookie(cookie: Cookie): RoutingContext;
 
-/**
+  /**
    * Remove a cookie. The context must have first been routed to a CookieHandler
- * for this to work.
+   * for this to work.
    */
-  removeCookie(name: string): Cookie;              
+  removeCookie(name: string): Cookie;
 
-/**
+  /**
    * @return the number of cookies. The context must have first been routed to a CookieHandler
- * for this to work.
+   * for this to work.
    */
-  cookieCount(): number;              
+  cookieCount(): number;
 
-/**
+  /**
    * @return a set of all the cookies. The context must have first been routed to a CookieHandler
- * for this to be populated.
+   * for this to be populated.
    */
-  cookies(): Array<Cookie>;              
+  cookies(): Array<Cookie>;
 
-/**
+  /**
    * @return  the entire HTTP request body as a string, assuming UTF-8 encoding. The context must have first been routed to a
- * BodyHandler for this to be populated.
+   * BodyHandler for this to be populated.
    */
-  getBodyAsString(): string;              
+  getBodyAsString(): string;
 
-/**
+  /**
    * Get the entire HTTP request body as a string, assuming the specified encoding. The context must have first been routed to a
- * BodyHandler for this to be populated.
+   * BodyHandler for this to be populated.
    */
-  getBodyAsString(encoding: string): string;              
+  getBodyAsString(encoding: string): string;
 
-/**
+  /**
    * @return Get the entire HTTP request body as a . The context must have first been routed to a
- * BodyHandler for this to be populated.
+   * BodyHandler for this to be populated.
    */
-  getBodyAsJson(): any;              
+  getBodyAsJson(): any;
 
-/**
+  /**
    * @return Get the entire HTTP request body as a . The context must have first been routed to a
- * BodyHandler for this to be populated.
+   * BodyHandler for this to be populated.
    */
-  getBodyAsJsonArray(): any[];              
+  getBodyAsJsonArray(): any[];
 
-/**
+  /**
    * @return Get the entire HTTP request body as a . The context must have first been routed to a
- * BodyHandler for this to be populated.
+   * BodyHandler for this to be populated.
    */
-  getBody(): Buffer;              
+  getBody(): Buffer;
 
-/**
+  /**
    * @return a set of fileuploads (if any) for the request. The context must have first been routed to a
- * BodyHandler for this to work.
+   * BodyHandler for this to work.
    */
-  fileUploads(): Array<FileUpload>;              
+  fileUploads(): Array<FileUpload>;
 
-/**
+  /**
    * Get the session. The context must have first been routed to a SessionHandler
- * for this to be populated.
- * Sessions live for a browser session, and are maintained by session cookies.
+   * for this to be populated.
+   * Sessions live for a browser session, and are maintained by session cookies.
    */
-  session(): Session;              
+  session(): Session;
 
-/**
+  /**
    * Get the authenticated user (if any). This will usually be injected by an auth handler if authentication if successful.
    */
-  user(): User;              
+  user(): User;
 
-/**
+  /**
    * If the context is being routed to failure handlers after a failure has been triggered by calling
- * fail then this will return that throwable. It can be used by failure handlers to render a response,
- * e.g. create a failure response page.
+   * fail then this will return that throwable. It can be used by failure handlers to render a response,
+   * e.g. create a failure response page.
    */
-  failure(): Throwable;              
+  failure(): Throwable;
 
-/**
+  /**
    * If the context is being routed to failure handlers after a failure has been triggered by calling
- * fail  then this will return that status code.  It can be used by failure handlers to render a response,
- * e.g. create a failure response page.
- *
- * When the status code has not been set yet (it is undefined) its value will be -1.
+   * fail  then this will return that status code.  It can be used by failure handlers to render a response,
+   * e.g. create a failure response page.
+   *
+   * When the status code has not been set yet (it is undefined) its value will be -1.
    */
-  statusCode(): number;              
+  statusCode(): number;
 
-/**
+  /**
    * If the route specifies produces matches, e.g. produces `text/html` and `text/plain`, and the `accept` header
- * matches one or more of these then this returns the most acceptable match.
+   * matches one or more of these then this returns the most acceptable match.
    */
-  getAcceptableContentType(): string;              
+  getAcceptableContentType(): string;
 
-/**
+  /**
    * Add a handler that will be called just before headers are written to the response. This gives you a hook where
- * you can write any extra headers before the response has been written when it will be too late.
+   * you can write any extra headers before the response has been written when it will be too late.
    */
-  addHeadersEndHandler(handler: (e: void) => void): number;              
+  addHeadersEndHandler(handler: (e: void) => void): number;
 
-/**
+  /**
    * Remove a headers end handler
    */
-  removeHeadersEndHandler(handlerID: number): boolean;              
+  removeHeadersEndHandler(handlerID: number): boolean;
 
-/**
+  /**
    * Add a handler that will be called just before the response body has been completely written.
- * This gives you a hook where you can write any extra data to the response before it has ended when it will be too late.
+   * This gives you a hook where you can write any extra data to the response before it has ended when it will be too late.
    */
-  addBodyEndHandler(handler: (e: void) => void): number;              
+  addBodyEndHandler(handler: (e: void) => void): number;
 
-/**
+  /**
    * Remove a body end handler
    */
-  removeBodyEndHandler(handlerID: number): boolean;              
+  removeBodyEndHandler(handlerID: number): boolean;
 
-/**
+  /**
    * @return true if the context is being routed to failure handlers.
    */
-  failed(): boolean;              
+  failed(): boolean;
 
-/**
+  /**
    * Set the body. Used by the BodyHandler. You will not normally call this method.
    */
-  setBody(body: Buffer): void;              
+  setBody(body: Buffer): void;
 
-/**
+  /**
    * Set the session. Used by the SessionHandler. You will not normally call this method.
    */
-  setSession(session: Session): void;              
+  setSession(session: Session): void;
 
-/**
+  /**
    * Set the user. Usually used by auth handlers to inject a User. You will not normally call this method.
    */
-  setUser(user: User): void;              
+  setUser(user: User): void;
 
-/**
+  /**
    * Clear the current user object in the context. This usually is used for implementing a log out feature, since the
- * current user is unbounded from the routing context.
+   * current user is unbounded from the routing context.
    */
-  clearUser(): void;              
+  clearUser(): void;
 
-/**
+  /**
    * Set the acceptable content type. Used by
    */
-  setAcceptableContentType(contentType: string): void;              
+  setAcceptableContentType(contentType: string): void;
 
-/**
+  /**
    * Restarts the current router with a new path and reusing the original method. All path parameters are then parsed
- * and available on the params list.
+   * and available on the params list.
    */
-  reroute(path: string): void;              
+  reroute(path: string): void;
 
-/**
+  /**
    * Restarts the current router with a new method and path. All path parameters are then parsed and available on the
- * params list.
+   * params list.
    */
-  reroute(method: any, path: string): void;              
+  reroute(method: any, path: string): void;
 
-/**
+  /**
    * Returns the locales for the current request. The locales are determined from the `accept-languages` header and
- * sorted on quality.
- *
- * When 2 or more entries have the same quality then the order used to return the best match is based on the lowest
- * index on the original list. For example if a user has en-US and en-GB with same quality and this order the best
- * match will be en-US because it was declared as first entry by the client.
+   * sorted on quality.
+   *
+   * When 2 or more entries have the same quality then the order used to return the best match is based on the lowest
+   * index on the original list. For example if a user has en-US and en-GB with same quality and this order the best
+   * match will be en-US because it was declared as first entry by the client.
    */
-  acceptableLocales(): Array<Locale>;              
+  acceptableLocales(): Array<Locale>;
 
-/**
+  /**
    * Helper to return the user preferred locale. It is the same action as returning the first element of the acceptable
- * locales.
+   * locales.
    */
-  preferredLocale(): Locale;              
+  preferredLocale(): Locale;
 
-/**
+  /**
    * Returns a map of named parameters as defined in path declaration with their actual values
    */
-  pathParams(): Array<string>;              
+  pathParams(): Array<string>;
 
-/**
+  /**
    * Gets the value of a single path parameter
    */
-  pathParam(name: string): string;    }                                                                                      declare var RoutingContext: {}
+  pathParam(name: string): string;
+
+}
+
+declare var RoutingContext: {
+
+}

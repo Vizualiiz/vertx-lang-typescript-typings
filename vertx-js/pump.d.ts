@@ -1,4 +1,10 @@
-/// <reference path="./globals.d.ts" />/// <reference path="./write_stream" />/// <reference path="./read_stream" />declare module "vertx-js/pump" {  export = Pump;}
+/// <reference path="./globals.d.ts" />
+/// <reference path="./write_stream" />
+/// <reference path="./read_stream" />
+
+declare module "vertx-js/pump" {
+  export = Pump;
+}
 
 /**
  * Pumps data from a ReadStream to a WriteStream and performs flow control where necessary to
@@ -20,36 +26,41 @@
  * <p>
  * Please see the documentation for more information.
  */
+declare interface Pump {
 
-declare interface Pump{                            
-
-/**
+  /**
    * Set the write queue max size to <code>maxSize</code>
    */
-  setWriteQueueMaxSize(maxSize: number): Pump;              
+  setWriteQueueMaxSize(maxSize: number): Pump;
 
-/**
+  /**
    * Start the Pump. The Pump can be started and stopped multiple times.
    */
-  start(): Pump;              
+  start(): Pump;
 
-/**
+  /**
    * Stop the Pump. The Pump can be started and stopped multiple times.
    */
-  stop(): Pump;              
+  stop(): Pump;
 
-/**
+  /**
    * Return the total number of items pumped by this pump.
    */
-  numberPumped(): number;    }            declare var Pump: {        
+  numberPumped(): number;
 
-/**
+}
+
+declare var Pump: {
+
+  /**
    * Create a new <code>Pump</code> with the given <code>ReadStream</code> and <code>WriteStream</code>
    */
-  pump(rs: ReadStream, ws: WriteStream): Pump;          
+  pump(rs: ReadStream, ws: WriteStream): Pump;
 
-/**
+  /**
    * Create a new <code>Pump</code> with the given <code>ReadStream</code> and <code>WriteStream</code> and
- * <code>writeQueueMaxSize</code>
+   * <code>writeQueueMaxSize</code>
    */
-  pump(rs: ReadStream, ws: WriteStream, writeQueueMaxSize: number): Pump;                  }
+  pump(rs: ReadStream, ws: WriteStream, writeQueueMaxSize: number): Pump;
+
+}

@@ -1,32 +1,42 @@
-/// <reference path="../vertx-js/globals.d.ts" />/// <reference path="./routing_context" />declare module "vertx-web-js/error_handler" {  export = ErrorHandler;}
+/// <reference path="../vertx-js/globals.d.ts" />
+/// <reference path="./routing_context" />
+
+declare module "vertx-web-js/error_handler" {
+  export = ErrorHandler;
+}
 
 /**
  * A pretty error handler for rendering error pages.
  */
+declare interface ErrorHandler {
 
-declare interface ErrorHandler{            
-
-/**
+  /**
    * Something has happened, so handle it.
    */
-  handle(event: RoutingContext): void;                                    }          declare var ErrorHandler: {            
+  handle(event: RoutingContext): void;
 
-/**
+}
+
+declare var ErrorHandler: {
+
+  /**
    * Create an error handler using defaults
    */
-  create(): ErrorHandler;          
+  create(): ErrorHandler;
 
-/**
+  /**
    * Create an error handler
    */
-  create(errorTemplateName: string, displayExceptionDetails: boolean): ErrorHandler;          
+  create(errorTemplateName: string, displayExceptionDetails: boolean): ErrorHandler;
 
-/**
+  /**
    * Create an error handler
    */
-  create(displayExceptionDetails: boolean): ErrorHandler;          
+  create(displayExceptionDetails: boolean): ErrorHandler;
 
-/**
+  /**
    * Create an error handler
    */
-  create(errorTemplateName: string): ErrorHandler;  }
+  create(errorTemplateName: string): ErrorHandler;
+
+}
